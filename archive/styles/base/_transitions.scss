@@ -1,0 +1,244 @@
+// DROPDOWNS
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transition:
+    opacity 0.1s ease,
+    transform 0.1s ease;
+}
+
+.dropdown-enter-from,
+.dropdown-leave-to {
+  opacity: 0;
+  transform: translateY(-4px) scale(0.98);
+}
+
+.dropdown-enter-to,
+.dropdown-leave-from {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+// TOOLTIPS
+.tooltip-enter-active,
+.tooltip-leave-active {
+  transition:
+    opacity 0.1s ease,
+    transform 0.1s ease;
+}
+
+.tooltip-enter-from,
+.tooltip-leave-to {
+  opacity: 0;
+}
+
+.tooltip[data-side='top'].tooltip-enter-from,
+.tooltip[data-side='top'].tooltip-leave-to {
+  transform: translateY(4px);
+}
+
+.tooltip[data-side='bottom'].tooltip-enter-from,
+.tooltip[data-side='bottom'].tooltip-leave-to {
+  transform: translateY(-4px);
+}
+
+.tooltip[data-side='left'].tooltip-enter-from,
+.tooltip[data-side='left'].tooltip-leave-to {
+  transform: translateX(4px);
+}
+
+.tooltip[data-side='right'].tooltip-enter-from,
+.tooltip[data-side='right'].tooltip-leave-to {
+  transform: translateX(-4px);
+}
+
+// MODALS
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.28s linear;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 1;
+}
+
+.modal-enter-active .modal__backdrop,
+.modal-leave-active .modal__backdrop {
+  transition: opacity 0.2s ease;
+}
+
+.modal-enter-active .modal__panel,
+.modal-leave-active .modal__panel {
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.18s ease;
+}
+
+.modal-enter-from .modal__backdrop,
+.modal-leave-to .modal__backdrop {
+  opacity: 0;
+}
+
+.modal-enter-from .modal__panel,
+.modal-leave-to .modal__panel {
+  opacity: 0;
+  transform: translateY(-48px);
+}
+
+// SCROLL TOP BUTTON
+.scroll-top-enter-active,
+.scroll-top-leave-active {
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.scroll-top-enter-from,
+.scroll-top-leave-to {
+  opacity: 0;
+  transform: translateY(12px) scale(0.96);
+}
+
+.scroll-top-enter-to,
+.scroll-top-leave-from {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+// TOASTS
+.toast-stack-move {
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.toast-stack-enter-active {
+  transition:
+    opacity 0.2s ease-out,
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.toast-stack-leave-active {
+  position: absolute;
+  width: 100%;
+
+  transition:
+    opacity 0.16s ease-in,
+    transform 0.22s cubic-bezier(0.4, 0, 1, 1);
+  will-change: opacity, transform;
+}
+
+.toast-stack-enter-from {
+  opacity: 0;
+  transform: translate3d(var(--toast-enter-x, 0), var(--toast-enter-y, -0.6rem), 0)
+    scale(var(--toast-scale-from, 0.98));
+}
+
+.toast-stack-leave-to {
+  opacity: 0;
+  transform: translate3d(var(--toast-leave-x, 0), var(--toast-leave-y, -0.6rem), 0)
+    scale(var(--toast-scale-from, 0.98));
+}
+
+.toast-stack-enter-to,
+.toast-stack-leave-from {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast-stack-enter-active,
+  .toast-stack-leave-active,
+  .toast-stack-move {
+    transition: none;
+  }
+}
+
+// OFFCANVAS
+.offcanvas-enter-active,
+.offcanvas-leave-active {
+  transition: opacity 0.24s linear;
+}
+
+.offcanvas-enter-from,
+.offcanvas-leave-to {
+  opacity: 1;
+}
+
+.offcanvas-enter-active .offcanvas__backdrop,
+.offcanvas-leave-active .offcanvas__backdrop {
+  transition: opacity 0.18s ease;
+}
+
+.offcanvas-enter-active .offcanvas__panel,
+.offcanvas-leave-active .offcanvas__panel {
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.offcanvas-enter-from .offcanvas__backdrop,
+.offcanvas-leave-to .offcanvas__backdrop {
+  opacity: 0;
+}
+
+.offcanvas-enter-from .offcanvas__panel--left,
+.offcanvas-leave-to .offcanvas__panel--left {
+  transform: translate3d(-100%, 0, 0);
+}
+
+.offcanvas-enter-from .offcanvas__panel--right,
+.offcanvas-leave-to .offcanvas__panel--right {
+  transform: translate3d(100%, 0, 0);
+}
+
+.offcanvas-enter-from .offcanvas__panel--top,
+.offcanvas-leave-to .offcanvas__panel--top {
+  transform: translate3d(0, -100%, 0);
+}
+
+.offcanvas-enter-from .offcanvas__panel--bottom,
+.offcanvas-leave-to .offcanvas__panel--bottom {
+  transform: translate3d(0, 100%, 0);
+}
+
+// FORM ERRORS
+.form-error-enter-active,
+.form-error-leave-active {
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+  transform-origin: top;
+}
+
+.form-error-enter-from,
+.form-error-leave-to {
+  opacity: 0;
+  transform: translateY(-6px) scaleY(0.96);
+}
+
+// ROUTER VIEW FADE
+.router-view-fade__target {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+}
+
+.router-view-fade-enter-active,
+.router-view-fade-leave-active {
+  transition: opacity 0.15s ease;
+}
+
+.router-view-fade-enter-from,
+.router-view-fade-leave-to {
+  opacity: 0;
+}
+
+.router-view-fade-enter-to,
+.router-view-fade-leave-from {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .router-view-fade-enter-active,
+  .router-view-fade-leave-active {
+    transition: none;
+  }
+}

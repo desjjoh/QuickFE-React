@@ -1,0 +1,22 @@
+{
+  "required": "This field is required.",
+  "email": "Enter a valid email address.",
+  "delete": "You must type {0} exactly to confirm.",
+  "date": "Enter a valid date in YYYY-MM-DD format.",
+  "phone": "Enter a valid phone number.",
+  "password": {
+    "min": "Password must be at least 8 characters.",
+    "max": "Password must be at most 16 characters.",
+    "digit": "At least one digit (0-9).",
+    "lowercase": "At least one lowercase letter.",
+    "uppercase": "At least one uppercase letter.",
+    "special": "At least one special character.",
+    "match": "Passwords must match"
+  },
+  "postalCode": "Enter a valid postal code.",
+  "code": {
+    "sixDigits": "Enter the 6 digit code."
+  },
+  "fileSize": "Choose an image that is 1 MB or smaller.",
+  "image": "Choose a JPG, PNG, or GIF image."
+}

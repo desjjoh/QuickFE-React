@@ -1,0 +1,37 @@
+@use 'sass:map';
+@use 'sass:meta';
+@use 'sass:list';
+
+@function deep-get($root, $keys...) {
+  $cursor: $root;
+
+  @if list.length($keys) == 0 {
+    @return $cursor;
+  }
+
+  @for $i from 1 through list.length($keys) {
+    $key: list.nth($keys, $i);
+
+    @if meta.type-of($cursor) != 'map' {
+      @error "'#{$key}' cannot be resolved because the path #{meta.inspect($keys)} hit a non-map value.";
+    }
+
+    @if map.has-key($cursor, $key) == false {
+      @error "Unknown key '#{$key}' in path #{meta.inspect($keys)}. Valid keys here: #{meta.inspect(map.keys($cursor))}.";
+    }
+
+    $cursor: map.get($cursor, $key);
+  }
+
+  @return $cursor;
+}
+
+@function token($map, $key, $name: 'token') {
+  $value: map.get($map, $key);
+
+  @if $value == null {
+    @error "Unknown #{$name} key: #{meta.inspect($key)}. Valid keys: #{meta.inspect(map.keys($map))}";
+  }
+
+  @return $value;
+}

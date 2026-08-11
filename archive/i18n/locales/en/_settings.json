@@ -1,0 +1,229 @@
+{
+  "addressDetails": {
+    "title": "Address details",
+    "form": {
+      "line1": "Address line 1",
+      "line1Placeholder": "Street address",
+      "line2": "Address line 2",
+      "line2Placeholder": "Apartment, suite, unit, etc.",
+      "city": "City",
+      "cityPlaceholder": "Enter city",
+      "region": "Region",
+      "postalCode": "Postal code",
+      "selectCountryFirst": "Select a country first…",
+      "helper": "Your address may be used for account records and regional settings. It will not be shown publicly."
+    },
+    "success": "Address details updated successfully.",
+    "deleteSuccess": "Address removed successfully."
+  },
+  "phoneDetails": {
+    "title": "Phone details",
+    "form": {
+      "phone": "@:common.phone",
+      "helper": "This number may be used for account security and recovery. It will not be shown publicly."
+    },
+    "success": "Phone number updated successfully.",
+    "deleteSuccess": "Phone number removed successfully."
+  },
+  "changeEmail": {
+    "title": "Change email address",
+    "form": {
+      "currentPassword": "@:confirmation.passwordVerification.title",
+      "newEmail": "New email address",
+      "newEmailPlaceholder": "Enter your new email address",
+      "confirmEmail": "Confirm new email address",
+      "confirmEmailPlaceholder": "Re-enter your new email address",
+      "helper": "A verification email will be sent to your new address to link your account."
+    },
+    "success": "Email change request sent. Check your new inbox to verify the address."
+  },
+  "changePassword": {
+    "title": "Change password",
+    "form": {
+      "currentPassword": "@:settings.changeEmail.form.currentPassword",
+      "newPassword": "New password",
+      "newPasswordPlaceholder": "Enter your new password",
+      "confirmPassword": "Confirm new password",
+      "confirmPasswordPlaceholder": "Re-enter your new password",
+      "helper": "Confirm your new password to finish updating your account."
+    },
+    "success": "Password updated successfully."
+  },
+  "uploadAvatar": {
+    "title": "Upload avatar",
+    "form": {
+      "image": "Avatar",
+      "helper": "Choose a JPG, PNG, or GIF image to use on your profile."
+    },
+    "success": "Avatar uploaded successfully.",
+    "deleteSuccess": "Avatar removed successfully."
+  },
+  "profileInformation": {
+    "title": "Update profile information",
+    "form": {
+      "firstName": "First name",
+      "firstNamePlaceholder": "Enter your first name",
+      "lastName": "Last name",
+      "lastNamePlaceholder": "Enter your last name",
+      "preferredName": "Preferred name",
+      "preferredNamePlaceholder": "Enter your preferred name",
+      "preferredNameHelper": "Used for email greetings and other personalized messages.",
+      "bio": "Bio",
+      "bioPlaceholder": "Share a short profile bio"
+    },
+    "success": "Profile information updated successfully."
+  },
+  "regionCountry": {
+    "title": "Update country",
+    "form": {
+      "helper": "Your country is used for regional defaults and account options."
+    },
+    "success": "Country updated successfully."
+  },
+  "regionTimeZone": {
+    "title": "Update time zone",
+    "form": {
+      "helper": "Your time zone is used to display dates, times, and scheduled activity."
+    },
+    "success": "Time zone updated successfully."
+  },
+  "profile": {
+    "sections": {
+      "media": {
+        "title": "Profile media",
+        "description": "Manage the image used to represent your account."
+      },
+      "personal": {
+        "title": "Personal information",
+        "description": "Keep your name, personal details, and profile bio up to date."
+      },
+      "regional": {
+        "title": "Regional settings",
+        "description": "Control the country and time zone used for dates, activity, and regional defaults."
+      },
+      "contact": {
+        "title": "Contact information",
+        "description": "Manage the phone numbers and address associated with your account."
+      }
+    },
+    "items": {
+      "picture": {
+        "title": "Profile picture",
+        "description": "Upload or update the image used for your account profile."
+      },
+      "details": {
+        "title": "Profile details",
+        "description": "Review and update the personal information shown on your account."
+      },
+      "country": {
+        "title": "@:common.country",
+        "description": "Used for regional defaults and country-specific account options."
+      },
+      "timezone": {
+        "title": "@:common.timezone",
+        "description": "Used to display dates, times, and scheduled activity in your local time."
+      },
+      "phone": {
+        "title": "@:common.phone",
+        "description": "Primary phone number associated with your account.",
+        "empty": "No phone number added yet",
+        "lastChanged": "Last changed: {date}"
+      },
+      "address": {
+        "title": "Primary address",
+        "description": "Used as your default billing and shipping address.",
+        "empty": "No primary address added yet"
+      }
+    }
+  },
+  "security": {
+    "sections": {
+      "signIn": {
+        "title": "Sign in methods",
+        "description": "Manage how you sign in and keep your account secure."
+      },
+      "twoFactor": {
+        "title": "Two-factor authentication",
+        "description": "Add an extra layer of security to your account."
+      },
+      "deleteAccount": {
+        "title": "Delete account",
+        "description": "Permanently remove your account and associated data."
+      }
+    },
+    "items": {
+      "email": {
+        "title": "@:auth.createAccount.email.label",
+        "description": "Used to sign in and receive account messages."
+      },
+      "password": {
+        "title": "@:auth.createAccount.password.label",
+        "description": "Used to protect your account."
+      },
+      "twoFactor": {
+        "title": "Email verification code",
+        "description": "Require an email verification code when signing in.",
+        "disabled": "Email MFA has been disabled.",
+        "enabled": "Email MFA is enabled",
+        "badge": {
+          "enabled": "Enabled",
+          "notEnabled": "Not enabled"
+        }
+      },
+      "deleteAccount": {
+        "title": "Permanent account deletion",
+        "description": "Once you confirm this action, there is no going back. Please be certain.",
+        "success": "Account deleted successfully.",
+        "action": "Delete account"
+      }
+    },
+    "lastChanged": "Last changed: {date}"
+  },
+  "sessions": {
+    "section": {
+      "title": "Web sessions",
+      "description": "Review the devices signed in to your account. More sessions will appear here when they are available."
+    },
+    "current": {
+      "title": "Current session"
+    },
+    "session": {
+      "title": "Session"
+    },
+    "actions": {
+      "details": "Details"
+    },
+    "active": "Active",
+    "stale": "Stale",
+    "lastActive": "Last active on {date}",
+    "revoke": {
+      "title": "Revoke session",
+      "success": "Session revoked successfully."
+    },
+    "revokeAll": {
+      "section": {
+        "title": "Sign out everywhere",
+        "description": "End every active session to secure your account across all signed-in devices."
+      },
+      "title": "Revoke all sessions",
+      "description": "Once you confirm this action, you will be signed out on every device.",
+      "action": "Revoke sessions"
+    },
+    "deviceValue": "{browser} on {os}",
+    "notAvailable": "Not available",
+    "details": {
+      "description": "Information recorded for this sign-in session.",
+      "device": "Device",
+      "location": "Location",
+      "ipAddress": "IP address",
+      "origin": "Origin",
+      "locationResolvedAt": "Location last updated",
+      "userAgent": "User agent"
+    }
+  },
+  "tabs": {
+    "account": "Account",
+    "profile": "Profile",
+    "sessions": "Sessions"
+  }
+}

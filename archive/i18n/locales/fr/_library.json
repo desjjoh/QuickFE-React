@@ -1,0 +1,82 @@
+{
+  "genders": {
+    "female": "Femme",
+    "male": "Homme",
+    "non_binary": "Non binaire",
+    "prefer_not_to_say": "Préfère ne pas répondre",
+    "other": "Autre"
+  },
+  "roles": {
+    "system-administrator": "Administrateur système",
+    "user": "Utilisateur"
+  },
+  "statuses": {
+    "active": "Actif",
+    "disabled": "Désactivé",
+    "locked": "Verrouillé"
+  },
+  "countries": {
+    "CA": "Canada",
+    "AU": "Australie"
+  },
+  "regions": {
+    "canada": {
+      "alberta": "Alberta",
+      "british_columbia": "Colombie-Britannique",
+      "manitoba": "Manitoba",
+      "new_brunswick": "Nouveau-Brunswick",
+      "newfoundland_and_labrador": "Terre-Neuve-et-Labrador",
+      "nova_scotia": "Nouvelle-Écosse",
+      "northwest_territories": "Territoires du Nord-Ouest",
+      "nunavut": "Nunavut",
+      "ontario": "Ontario",
+      "prince_edward_island": "Île-du-Prince-Édouard",
+      "quebec": "Québec",
+      "saskatchewan": "Saskatchewan",
+      "yukon": "Yukon"
+    },
+    "australia": {
+      "australian_capital_territory": "Territoire de la capitale australienne",
+      "new_south_wales": "Nouvelle-Galles du Sud",
+      "northern_territory": "Territoire du Nord",
+      "queensland": "Queensland",
+      "south_australia": "Australie-Méridionale",
+      "tasmania": "Tasmanie",
+      "victoria": "Victoria",
+      "western_australia": "Australie-Occidentale"
+    }
+  },
+  "color": {
+    "gold": "Or",
+    "bronze": "Bronze",
+    "brown": "Brun",
+    "yellow": "Jaune",
+    "amber": "Ambre",
+    "orange": "Orange",
+    "tomato": "Tomate",
+    "red": "Rouge",
+    "ruby": "Rubis",
+    "crimson": "Cramoisi",
+    "pink": "Rose",
+    "plum": "Prune",
+    "purple": "Pourpre",
+    "violet": "Violet",
+    "iris": "Iris",
+    "indigo": "Indigo",
+    "blue": "Bleu",
+    "cyan": "Cyan",
+    "teal": "Sarcelle",
+    "jade": "Jade",
+    "green": "Vert",
+    "grass": "Herbe",
+    "lime": "Citron vert",
+    "mint": "Menthe",
+    "sky": "Ciel",
+    "gray": "Gris",
+    "mauve": "Mauve",
+    "slate": "Ardoise",
+    "sage": "Sauge",
+    "olive": "Olive",
+    "sand": "Sable"
+  }
+}

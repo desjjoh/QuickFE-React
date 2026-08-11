@@ -1,0 +1,82 @@
+{
+  "genders": {
+    "female": "Female",
+    "male": "Male",
+    "non_binary": "Non binary",
+    "prefer_not_to_say": "Prefer not to say",
+    "other": "Other"
+  },
+  "roles": {
+    "system-administrator": "System Administrator",
+    "user": "User"
+  },
+  "statuses": {
+    "active": "Active",
+    "disabled": "Disabled",
+    "locked": "Locked"
+  },
+  "countries": {
+    "CA": "Canada",
+    "AU": "Australia"
+  },
+  "regions": {
+    "canada": {
+      "alberta": "Alberta",
+      "british_columbia": "British Columbia",
+      "manitoba": "Manitoba",
+      "new_brunswick": "New Brunswick",
+      "newfoundland_and_labrador": "Newfoundland and Labrador",
+      "nova_scotia": "Nova Scotia",
+      "northwest_territories": "Northwest Territories",
+      "nunavut": "Nunavut",
+      "ontario": "Ontario",
+      "prince_edward_island": "Prince Edward Island",
+      "quebec": "Quebec",
+      "saskatchewan": "Saskatchewan",
+      "yukon": "Yukon"
+    },
+    "australia": {
+      "australian_capital_territory": "Australian Capital Territory",
+      "new_south_wales": "New South Wales",
+      "northern_territory": "Northern Territory",
+      "queensland": "Queensland",
+      "south_australia": "South Australia",
+      "tasmania": "Tasmania",
+      "victoria": "Victoria",
+      "western_australia": "Western Australia"
+    }
+  },
+  "color": {
+    "gold": "Gold",
+    "bronze": "Bronze",
+    "brown": "Brown",
+    "yellow": "Yellow",
+    "amber": "Amber",
+    "orange": "Orange",
+    "tomato": "Tomato",
+    "red": "Red",
+    "ruby": "Ruby",
+    "crimson": "Crimson",
+    "pink": "Pink",
+    "plum": "Plum",
+    "purple": "Purple",
+    "violet": "Violet",
+    "iris": "Iris",
+    "indigo": "Indigo",
+    "blue": "Blue",
+    "cyan": "Cyan",
+    "teal": "Teal",
+    "jade": "Jade",
+    "green": "Green",
+    "grass": "Grass",
+    "lime": "Lime",
+    "mint": "Mint",
+    "sky": "Sky",
+    "gray": "Grey",
+    "mauve": "Mauve",
+    "slate": "Slate",
+    "sage": "Sage",
+    "olive": "Olive",
+    "sand": "Sand"
+  }
+}

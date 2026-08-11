@@ -1,0 +1,68 @@
+{
+  "page": {
+    "title": "Inicio de la cuenta",
+    "subtitle": "Te damos la bienvenida de nuevo, {name}. Esto es lo que ocurre con tu cuenta."
+  },
+  "header": {
+    "emptyBio": "Añade una biografía breve para personalizar tu perfil.",
+    "editProfile": "@:common.edit @.lower:app.routes.profile"
+  },
+  "cards": {
+    "timeline": {
+      "title": "Cronología de la cuenta",
+      "subtitle": "Hitos clave e historial de acceso a la cuenta."
+    },
+    "session": {
+      "title": "Sesión activa",
+      "subtitle": "Detalles sobre tu sesión iniciada actual."
+    },
+    "security": {
+      "title": "Resumen de seguridad",
+      "subtitle": "Un vistazo rápido a la configuración de acceso de tu cuenta."
+    },
+    "overview": {
+      "title": "Resumen del perfil",
+      "subtitle": "Revisa los datos personales y regionales asociados con tu perfil.",
+      "empty": {
+        "preferredName": "Aún no se ha añadido ningún nombre preferido"
+      }
+    },
+    "activity": {
+      "title": "Actividad reciente",
+      "subtitle": "Revisa tu actividad y eventos recientes de la cuenta.",
+      "empty": "Los inicios de sesión, cambios de perfil y actualizaciones de seguridad aparecerán aquí cuando haya actividad disponible.",
+      "action": "Ver toda la actividad"
+    }
+  },
+  "data": {
+    "timeline": {
+      "memberSince": "Miembro desde",
+      "lastSignIn": "Último inicio de sesión",
+      "lastUpdated": "Última actualización"
+    },
+    "session": {
+      "device": "Dispositivo",
+      "deviceValue": "{browser} en {os}",
+      "lastLocation": "Ubicación",
+      "ipAddress": "Dirección IP"
+    },
+    "security": {
+      "status": "Estado",
+      "twoFactor": "2FA",
+      "passwordChanged": "Contraseña cambiada",
+      "emailChanged": "Correo electrónico cambiado",
+      "notEnabled": "@:settings.security.items.twoFactor.notEnabled",
+      "notAvailable": "No disponible"
+    },
+    "overview": {
+      "fullName": "Nombre completo",
+      "preferredName": "@:settings.profileInformation.form.preferredName",
+      "dateOfBirth": "@:common.dob",
+      "gender": "@:common.gender",
+      "country": "@:common.country",
+      "timezone": "@:common.timezone",
+      "phone": "@:common.phone",
+      "address": "@:settings.profile.items.address.title"
+    }
+  }
+}

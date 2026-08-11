@@ -1,0 +1,15 @@
+{
+  "unauthorized": {
+    "eyebrow": "Unauthenticated",
+    "title": "You must be signed in to view this page",
+    "message": "You need to be signed in before you can access this page. Sign in to continue, or go back home if this does not look right."
+  },
+  "forbidden": {
+    "eyebrow": "Forbidden",
+    "title": "You are not authorised to view this content",
+    "message": "Your account does not have permission to access this area. Return home, or contact an administrator if you believe this is a mistake."
+  },
+  "submitError": {
+    "title": "Oops! Something went wrong"
+  }
+}

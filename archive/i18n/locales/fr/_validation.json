@@ -1,0 +1,22 @@
+{
+  "required": "Ce champ est obligatoire.",
+  "email": "Saisissez une adresse e-mail valide.",
+  "delete": "Vous devez saisir exactement {0} pour confirmer.",
+  "date": "Saisissez une date valide au format AAAA-MM-JJ.",
+  "phone": "Saisissez un numéro de téléphone valide.",
+  "password": {
+    "min": "Le mot de passe doit contenir au moins 8 caractères.",
+    "max": "Le mot de passe doit contenir au maximum 16 caractères.",
+    "digit": "Au moins un chiffre (0-9).",
+    "lowercase": "Au moins une lettre minuscule.",
+    "uppercase": "Au moins une lettre majuscule.",
+    "special": "Au moins un caractère spécial.",
+    "match": "Les mots de passe doivent correspondre"
+  },
+  "postalCode": "Saisissez un code postal valide.",
+  "code": {
+    "sixDigits": "Saisissez le code à 6 chiffres."
+  },
+  "fileSize": "Choisissez une image de 1 Mo ou moins.",
+  "image": "Choisissez une image JPG, PNG ou GIF."
+}
