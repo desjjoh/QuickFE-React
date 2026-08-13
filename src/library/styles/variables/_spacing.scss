@@ -1,12 +1,12 @@
-@use '@/styles/globals' as *;
+@use "@/library/styles/globals" as *;
 
-@use 'sass:meta';
+@use "sass:meta";
 
 $layout-max-width: 140rem !default;
 $spacer: 0.4rem !default;
 
 @function space($n) {
-  @if meta.type-of($n) != 'number' {
+  @if meta.type-of($n) != "number" {
     @error "space(#{$n}) expects a number (e.g. 0, 1, 2.5).";
   }
 
@@ -20,7 +20,7 @@ $ui-line-height: (
 );
 
 @function ui-line-height($key) {
-  @return token($ui-line-height, $key, 'ui-line-height');
+  @return token($ui-line-height, $key, "ui-line-height");
 }
 
 $z-layers: (
@@ -36,7 +36,7 @@ $z-layers: (
 );
 
 @function z-index($key) {
-  @return token($z-layers, $key, 'z-index');
+  @return token($z-layers, $key, "z-index");
 }
 
 $masthead-height: space(16);

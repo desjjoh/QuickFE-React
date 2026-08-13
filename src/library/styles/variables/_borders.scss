@@ -1,4 +1,4 @@
-@use '@/styles/globals' as *;
+@use "@/library/styles/globals" as *;
 
 // xs: 0.2rem,  // 2px  – hairline rounding (inputs, checkboxes)
 // sm: 0.4rem,  // 4px  – buttons, small cards
@@ -22,5 +22,5 @@ $radius: (
 );
 
 @function border-radius($key) {
-  @return token($radius, $key, 'border-radius');
+  @return token($radius, $key, "border-radius");
 }
