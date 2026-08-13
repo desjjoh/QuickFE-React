@@ -1,0 +1,237 @@
+$text-tones: (
+  primary: color(text, primary),
+  secondary: color(text, secondary),
+  tertiary: color(text, tertiary),
+  muted: color(text, muted),
+  inherit: inherit,
+);
+
+$heading-sizes: (
+  h1: font-size(h1),
+  h2: font-size(h2),
+  h3: font-size(h3),
+  h4: font-size(h4),
+  h5: font-size(h5),
+  h6: font-size(base),
+);
+
+$text-sizes: (
+  h1: font-size(h1),
+  h2: font-size(h2),
+  h3: font-size(h3),
+  h4: font-size(h4),
+  h5: font-size(h5),
+  base: font-size(base),
+  sm: font-size(sm),
+);
+
+$text-weights: (
+  thin: font-weight(thin),
+  extralight: font-weight(extralight),
+  light: font-weight(light),
+  normal: font-weight(normal),
+  medium: font-weight(medium),
+  semibold: font-weight(semibold),
+  bold: font-weight(bold),
+  extrabold: font-weight(extrabold),
+  "black": font-weight(black),
+  inherit: inherit,
+);
+
+$text-line-heights: (
+  sm: prose-line-height(sm),
+  base: prose-line-height(base),
+  lg: prose-line-height(lg),
+);
+
+$text-families: (
+  base: font-family(base),
+  display: font-family(display),
+  code: font-family(code),
+  emphasis: font-family(emphasis),
+);
+
+$text-alignments: (
+  left: left,
+  center: center,
+  right: right,
+  justify: justify,
+);
+
+/* -------------------------------------------------------------------------- */
+/* Block text                                                                 */
+/* -------------------------------------------------------------------------- */
+
+.blockText {
+  color: var(--text-color, inherit);
+  font-size: var(--font-size, inherit);
+  font-weight: var(--text-weight, inherit);
+  line-height: var(--text-line-height, inherit);
+  font-family: var(--text-family, inherit);
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+
+  &.no-wrap {
+    white-space: nowrap;
+  }
+
+  &.is-truncated {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &.is-clamped {
+    display: -webkit-box;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--text-clamp);
+
+    overflow: hidden;
+  }
+
+  &.letter-spaced {
+    text-transform: uppercase;
+    letter-spacing: $letter-spaced;
+  }
+}
+
+.blockText:where(h1, h2, h3, h4, h5, h6) {
+  --text-color: #{color(text, primary)};
+}
+
+.blockText:where(h4, h5, h6) {
+  --text-line-height: #{prose-line-height(base)};
+  --text-weight: #{font-weight(semibold)};
+}
+
+.blockText:where(h1, h2, h3) {
+  --text-line-height: #{prose-line-height(sm)};
+  --text-weight: #{font-weight(bold)};
+  --text-family: #{font-family(display)};
+}
+
+@each $tag, $value in $heading-sizes {
+  .blockText:where(#{$tag}) {
+    --font-size: #{$value};
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Inline text                                                                */
+/* -------------------------------------------------------------------------- */
+
+.inlineText {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.inlineText:where(small, sub, sup) {
+  font-size: 0.875em;
+}
+
+.inlineText:where(strong, b) {
+  font-weight: bolder;
+}
+
+.inlineText:where(em, i, q) {
+  font-family: font-family(emphasis);
+
+  font-style: italic;
+  font-weight: lighter;
+}
+
+.inlineText:where(del, s) {
+  text-decoration: line-through;
+}
+
+.inlineText:where(ins, u) {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+.inlineText:where(code) {
+  font-family: font-family(code);
+  font-size: font-size(sm);
+
+  color: color(theme, pink, theme, 11);
+  background-color: color(theme, pink, theme-alpha, 2);
+  box-shadow: inset 0 0 0 1px color(theme, pink, theme-alpha, 6);
+
+  padding-inline: space(1);
+  padding-block: space(0.5);
+
+  box-decoration-break: clone;
+}
+
+.inlineText:where(mark) {
+  color: color(theme, amber, theme-alpha, 11);
+  background-color: color(theme, amber, theme-alpha, 3);
+  box-shadow: inset 0 0 0 1px color(theme, amber, theme-alpha, 6);
+
+  padding-inline: space(1);
+  padding-block: space(0.5);
+
+  box-decoration-break: clone;
+}
+
+.inlineText.is-truncated {
+  display: inline-block;
+
+  max-width: 100%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Shared modifiers                                                           */
+/* -------------------------------------------------------------------------- */
+
+@each $tone, $value in $text-tones {
+  .tone-#{$tone} {
+    color: #{$value};
+    --text-color: #{$value};
+  }
+}
+
+@each $size, $value in $text-sizes {
+  .size-#{$size} {
+    font-size: #{$value};
+    --font-size: #{$value};
+  }
+}
+
+@each $weight, $value in $text-weights {
+  .weight-#{$weight} {
+    font-weight: #{$value};
+    --text-weight: #{$value};
+  }
+}
+
+@each $lh, $value in $text-line-heights {
+  .leading-#{$lh} {
+    line-height: #{$value};
+    --text-line-height: #{$value};
+  }
+}
+
+@each $family, $value in $text-families {
+  .font-#{$family} {
+    font-family: #{$value};
+    --text-family: #{$value};
+  }
+}
+
+@each $align, $value in $text-alignments {
+  .align-#{$align} {
+    text-align: #{$value};
+  }
+}

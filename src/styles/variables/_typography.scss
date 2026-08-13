@@ -1,7 +1,7 @@
-@use '@/styles/globals' as *;
-@use './fonts' as *;
+@use "@/styles/globals" as *;
+@use "./fonts" as *;
 
-@use 'sass:map';
+@use "sass:map";
 
 $prose-line-height: (
   base: 1.5,
@@ -10,7 +10,7 @@ $prose-line-height: (
 );
 
 @function prose-line-height($key) {
-  @return token($prose-line-height, $key, 'prose-line-height');
+  @return token($prose-line-height, $key, "prose-line-height");
 }
 
 $font-size: (
@@ -24,7 +24,7 @@ $font-size: (
 );
 
 @function font-size($key) {
-  @return token($font-size, $key, 'font-size');
+  @return token($font-size, $key, "font-size");
 }
 
 $font-weight: (
@@ -40,18 +40,18 @@ $font-weight: (
 );
 
 @function font-weight($key) {
-  @return token($font-weight, $key, 'font-weight');
+  @return token($font-weight, $key, "font-weight");
 }
 
 $font-family: (
   base: $fonts-nunito-sans,
-  display: $fonts-outfit,
+  display: $fonts-space-grotesk,
   code: $fonts-jetbrains-monospace,
   emphasis: $fonts-merriweather,
 );
 
 @function font-family($key) {
-  @return token($font-family, $key, 'font-family');
+  @return token($font-family, $key, "font-family");
 }
 
 $letter-spaced: 0.08em;

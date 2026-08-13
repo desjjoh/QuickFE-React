@@ -1,11 +1,11 @@
-@use '@/styles/globals' as *;
-@use '@/styles/palette' as *;
+@use "@/styles/globals" as *;
+@use "@/styles/palette" as *;
 
-@use 'sass:color';
+@use "sass:color";
 
-@use 'sass:list';
-@use 'sass:map';
-@use 'sass:meta';
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
 
 // Natural pairing
 // https://www.radix-ui.com/colors/docs/palette-composition/composing-a-palette
@@ -64,7 +64,7 @@ $neutral-palettes: (gray, mauve, slate, sage, olive, sand);
   @return gray;
 }
 
-$color-primary: blue;
+$color-primary: violet;
 $color-gray: neutral-for-primary($color-primary);
 
 $color-success: green;
@@ -132,7 +132,11 @@ $solid-dark-text-colors: (amber, yellow, lime, mint, sky);
   $theme-palettes: ();
 
   @each $color-name, $value in $palettes {
-    $theme-palettes: map.set($theme-palettes, $color-name, build-theme-palette($mode, $color-name));
+    $theme-palettes: map.set(
+      $theme-palettes,
+      $color-name,
+      build-theme-palette($mode, $color-name)
+    );
   }
 
   @return $theme-palettes;
@@ -206,10 +210,10 @@ $colors-light: build-colors(light);
 $colors-dark: build-colors(dark);
 
 @function color-var-name($keys...) {
-  $name: '--color';
+  $name: "--color";
 
   @each $key in $keys {
-    $name: '#{$name}-#{$key}';
+    $name: "#{$name}-#{$key}";
   }
 
   @return $name;
@@ -223,7 +227,7 @@ $colors-dark: build-colors(dark);
   @each $key, $value in $values {
     $keys: list.append($prefix, $key);
 
-    @if meta.type-of($value) == 'map' {
+    @if meta.type-of($value) == "map" {
       @include emit-color-vars($value, $keys);
     } @else {
       #{color-var-name($keys...)}: #{$value};
