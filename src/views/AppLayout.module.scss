@@ -1,0 +1,34 @@
+.layout {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 1fr) auto;
+
+  grid-template-areas:
+    "top top"
+    "bottom-left bottom-right";
+
+  gap: space(4);
+
+  width: 100%;
+  min-height: 100dvh;
+}
+
+.top {
+  grid-area: top;
+
+  min-width: 0;
+  min-height: 0;
+}
+
+.bottomLeft {
+  grid-area: bottom-left;
+
+  min-width: 0;
+}
+
+.bottomRight {
+  grid-area: bottom-right;
+
+  min-width: 0;
+}

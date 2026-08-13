@@ -1,0 +1,35 @@
+$card-sizes: (
+  sm: (
+    padding: space(3),
+    radius: border-radius(sm),
+  ),
+  md: (
+    padding: space(4),
+    radius: border-radius(md),
+  ),
+  lg: (
+    padding: space(6),
+    radius: border-radius(lg),
+  ),
+);
+
+.baseCard {
+  --card-bg: #{color(bg, page)};
+  --card-box-shadow: #{box-shadow(2)};
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background-color: var(--card-bg);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-box-shadow);
+}
+
+@each $size, $values in $card-sizes {
+  .size-#{$size} {
+    --card-padding: #{deep-get($values, padding)};
+    --card-radius: #{deep-get($values, radius)};
+  }
+}
