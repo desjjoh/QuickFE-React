@@ -1,14 +1,14 @@
 import { Fragment, useState } from "react";
-import { BlockText } from "@/shared/components/text/BlockText";
-import "./App.css";
-import { InlineText } from "@/shared/components/text/InlineText";
-import { Button } from "@/shared/components/button/Button";
+import { BlockText } from "@/library/components/text/BlockText";
+import "./App.scss";
+import { InlineText } from "@/library/components/text/InlineText";
+import { Button } from "@/library/components/button/Button";
 
 const reactLogo = "/assets/react.svg";
 const viteLogo = "/assets/vite.svg";
 const heroImg = "/assets/hero.png";
 
-function App() {
+function App(): React.JSX.Element {
   const [count, setCount] = useState(0);
 
   return (
