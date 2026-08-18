@@ -5,6 +5,14 @@ import { fileURLToPath, URL } from "node:url";
 
 // https://vite.dev/config/
 export default defineConfig({
+  server: {
+    port: 8080,
+    strictPort: true,
+  },
+  preview: {
+    port: 8080,
+    strictPort: true,
+  },
   resolve: {
     alias: { "@": fileURLToPath(new URL("./src", import.meta.url)) },
   },

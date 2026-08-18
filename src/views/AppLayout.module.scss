@@ -10,8 +10,10 @@
 
   gap: space(4);
 
+  flex-grow: 1;
+
   width: 100%;
-  min-height: 100dvh;
+  min-height: 100%;
 }
 
 .top {

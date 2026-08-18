@@ -1,6 +1,6 @@
 import type { CSSProperties, HTMLAttributes, ReactNode } from "react";
 
-import "./FlexBox.module.scss";
+import styles from "./FlexBox.module.scss";
 
 type FlexDirection = CSSProperties["flexDirection"];
 type FlexWrap = CSSProperties["flexWrap"];
@@ -108,7 +108,7 @@ export function FlexBox({
 
   return (
     <div
-      className={["flex-box", className].filter(Boolean).join(" ")}
+      className={[styles.flexBox, className].filter(Boolean).join(" ")}
       style={flexStyle}
       {...rest}>
       {children}

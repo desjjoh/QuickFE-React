@@ -7,6 +7,8 @@ import { AppLayout } from "./AppLayout";
 import { Card } from "@/library/components/card/BaseCard";
 import { CardBody } from "@/library/components/card/CardBody";
 import { FlexBox } from "@/library/components/flex/FlexBox";
+import { CenteredLayout } from "@/shared/layouts/CenteredLayout";
+import { FileCodeCorner, UserStar } from "lucide-react";
 
 const reactLogo = "/assets/react.svg";
 const viteLogo = "/assets/vite.svg";
@@ -17,12 +19,12 @@ function App(): React.JSX.Element {
 
   return (
     <Fragment>
-      <AppLayout
-        top={
-          <Card>
-            <CardBody>
-              <FlexBox direction="column" gap={4} alignItems="center">
-                <div id="center" className="hero">
+      <CenteredLayout>
+        <AppLayout
+          top={
+            <section id="center">
+              <FlexBox direction="column" gap={6} alignItems="center">
+                <div className="hero">
                   <img
                     src={heroImg}
                     className="base"
@@ -34,7 +36,7 @@ function App(): React.JSX.Element {
                   <img src={viteLogo} className="vite" alt="Vite logo" />
                 </div>
 
-                <FlexBox direction="column" gap={2}>
+                <FlexBox direction="column" gap={1} alignItems="center">
                   <BlockText element="h1">Get started</BlockText>
                   <BlockText>
                     Edit <InlineText element="code">src/App.tsx</InlineText> and
@@ -48,96 +50,106 @@ function App(): React.JSX.Element {
                   Count is {count}
                 </Button>
               </FlexBox>
-            </CardBody>
-          </Card>
-        }
-        bottomLeft={
-          <section id="next-steps">
-            <div id="docs">
-              <svg className="icon" role="presentation" aria-hidden="true">
-                <use href="/icons.svg#documentation-icon"></use>
-              </svg>
+            </section>
+          }
+          bottomLeft={
+            <Card id="next-steps" size="lg">
+              <CardBody>
+                <FlexBox direction="column" id="social" gap={6}>
+                  <FlexBox alignItems="center" gap={3}>
+                    <FileCodeCorner size={24} className="icon" />
 
-              <BlockText element="h3">Documentation</BlockText>
-              <BlockText>Your questions, answered</BlockText>
+                    <FlexBox direction="column">
+                      <BlockText element="h4">Documentation</BlockText>
+                      <BlockText>Your questions, answered</BlockText>
+                    </FlexBox>
+                  </FlexBox>
 
-              <ul>
-                <li>
-                  <a href="https://vite.dev/" target="_blank">
-                    <img className="logo" src={viteLogo} alt="" />
-                    Explore Vite
-                  </a>
-                </li>
-                <li>
-                  <a href="https://react.dev/" target="_blank">
-                    <img className="button-icon" src={reactLogo} alt="" />
-                    Learn more
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </section>
-        }
-        bottomRight={
-          <section id="next-steps">
-            <div id="social">
-              <svg className="icon" role="presentation" aria-hidden="true">
-                <use href="/icons.svg#social-icon"></use>
-              </svg>
+                  <ul>
+                    <li>
+                      <a href="https://vite.dev/" target="_blank">
+                        <img className="logo" src={viteLogo} alt="" />
+                        Explore Vite
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://react.dev/" target="_blank">
+                        <img className="button-icon" src={reactLogo} alt="" />
+                        Learn more
+                      </a>
+                    </li>
+                  </ul>
+                </FlexBox>
+              </CardBody>
+            </Card>
+          }
+          bottomRight={
+            <Card id="next-steps" size="lg">
+              <CardBody>
+                <FlexBox direction="column" id="social" gap={6}>
+                  <FlexBox alignItems="center" gap={3}>
+                    <UserStar size={24} className="icon" />
 
-              <BlockText element="h3">Connect with us</BlockText>
-              <BlockText>Join the Vite community</BlockText>
+                    <FlexBox direction="column">
+                      <BlockText element="h4">Connect with us</BlockText>
+                      <BlockText>Join the Vite community</BlockText>
+                    </FlexBox>
+                  </FlexBox>
 
-              <ul>
-                <li>
-                  <a href="https://github.com/vitejs/vite" target="_blank">
-                    <svg
-                      className="button-icon"
-                      role="presentation"
-                      aria-hidden="true">
-                      <use href="/icons.svg#github-icon"></use>
-                    </svg>
-                    GitHub
-                  </a>
-                </li>
-                <li>
-                  <a href="https://chat.vite.dev/" target="_blank">
-                    <svg
-                      className="button-icon"
-                      role="presentation"
-                      aria-hidden="true">
-                      <use href="/icons.svg#discord-icon"></use>
-                    </svg>
-                    Discord
-                  </a>
-                </li>
-                <li>
-                  <a href="https://x.com/vite_js" target="_blank">
-                    <svg
-                      className="button-icon"
-                      role="presentation"
-                      aria-hidden="true">
-                      <use href="/icons.svg#x-icon"></use>
-                    </svg>
-                    X.com
-                  </a>
-                </li>
-                <li>
-                  <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                    <svg
-                      className="button-icon"
-                      role="presentation"
-                      aria-hidden="true">
-                      <use href="/icons.svg#bluesky-icon"></use>
-                    </svg>
-                    Bluesky
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </section>
-        }
-      />
+                  <ul>
+                    <li>
+                      <a href="https://github.com/vitejs/vite" target="_blank">
+                        <svg
+                          className="button-icon"
+                          role="presentation"
+                          aria-hidden="true">
+                          <use href="/icons.svg#github-icon"></use>
+                        </svg>
+                        GitHub
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://chat.vite.dev/" target="_blank">
+                        <svg
+                          className="button-icon"
+                          role="presentation"
+                          aria-hidden="true">
+                          <use href="/icons.svg#discord-icon"></use>
+                        </svg>
+                        Discord
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://x.com/vite_js" target="_blank">
+                        <svg
+                          className="button-icon"
+                          role="presentation"
+                          aria-hidden="true">
+                          <use href="/icons.svg#x-icon"></use>
+                        </svg>
+                        X.com
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://bsky.app/profile/vite.dev"
+                        target="_blank">
+                        <svg
+                          className="button-icon"
+                          role="presentation"
+                          aria-hidden="true">
+                          <use href="/icons.svg#bluesky-icon"></use>
+                        </svg>
+                        Bluesky
+                      </a>
+                    </li>
+                  </ul>
+                </FlexBox>
+              </CardBody>
+            </Card>
+          }
+        />
+      </CenteredLayout>
     </Fragment>
   );
 }
