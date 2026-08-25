@@ -1,24 +1,26 @@
-import { FileCodeCorner } from "lucide-react";
+import { Atom, FileCodeCorner, Zap } from "lucide-react";
 
+import { ButtonLink } from "@/library/components/links/ButtonLink";
 import { BlockText } from "@/library/components/text/BlockText";
 import { Card } from "@/library/components/card/BaseCard";
 import { CardBody } from "@/library/components/card/CardBody";
 import { FlexBox } from "@/library/components/flex/FlexBox";
 
 import styles from "../styles/App.module.scss";
-import { ButtonLink } from "@/library/components/links/ButtonLink";
-
-const reactLogo = "/assets/react.svg";
-const viteLogo = "/assets/vite.svg";
+import { useViewport } from "@/shared/hooks/useViewport";
 
 type Props = {
   className?: string;
 };
 
 export function Documentation({ className }: Props): React.JSX.Element {
+  const { isMobile } = useViewport();
+
   return (
     <Card
-      className={[styles.nextsteps, className].filter(Boolean).join(" ")}
+      className={[styles.nextsteps, isMobile && styles.stacked, className]
+        .filter(Boolean)
+        .join(" ")}
       size="lg">
       <CardBody>
         <FlexBox direction="column" id="social" gap={6}>
@@ -37,19 +39,20 @@ export function Documentation({ className }: Props): React.JSX.Element {
                 href="https://vite.dev/"
                 external
                 variant="surface"
-                tone="neutral">
+                iconPosition="start"
+                icon={Zap}>
                 Explore Vite
               </ButtonLink>
-              {/* <a href="https://vite.dev/" target="_blank">
-                <img className={styles.logo} src={viteLogo} alt="" />
-                Explore Vite
-              </a> */}
             </li>
             <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className={styles["button-icon"]} src={reactLogo} alt="" />
+              <ButtonLink
+                href="https://react.dev/"
+                external
+                variant="surface"
+                iconPosition="start"
+                icon={Atom}>
                 Learn more
-              </a>
+              </ButtonLink>
             </li>
           </ul>
         </FlexBox>

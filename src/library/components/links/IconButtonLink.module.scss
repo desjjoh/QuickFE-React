@@ -13,11 +13,11 @@ $button-sizes: (
   ),
 );
 
-.link-icon__button {
+.linkIconButton {
   padding: 0;
   aspect-ratio: 1 / 1;
 
-  .button__content {
+  > span {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -28,7 +28,7 @@ $button-sizes: (
     overflow: visible;
   }
 
-  .button__label {
+  > span > span {
     display: inline-flex;
     align-items: center;
     justify-content: center;

@@ -1,19 +1,25 @@
 .layout {
   display: grid;
-
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: minmax(0, 1fr) auto;
-
   grid-template-areas:
     "top top"
     "bottom-left bottom-right";
-
   gap: space(4);
 
   flex-grow: 1;
 
   width: 100%;
   min-height: 100%;
+}
+
+.stacked {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto auto;
+  grid-template-areas:
+    "top"
+    "bottom-left"
+    "bottom-right";
 }
 
 .top {

@@ -1,22 +1,26 @@
-import { BlockText } from "@/library/components/text/BlockText";
+import { Cloud, Gamepad, GitFork, UserStar, X } from "lucide-react";
 
+import { BlockText } from "@/library/components/text/BlockText";
 import { Card } from "@/library/components/card/BaseCard";
 import { CardBody } from "@/library/components/card/CardBody";
 import { FlexBox } from "@/library/components/flex/FlexBox";
-import { UserStar } from "lucide-react";
+import { ButtonLink } from "@/library/components/links/ButtonLink";
+import { useViewport } from "@/shared/hooks/useViewport";
 
-import "../styles/App.module.scss";
 import styles from "../styles/App.module.scss";
-import { Button } from "@/library/components/button/Button";
 
 type Props = {
   className?: string;
 };
 
 export function Connect({ className }: Props): React.JSX.Element {
+  const { isMobile } = useViewport();
+
   return (
     <Card
-      className={[styles.nextsteps, className].filter(Boolean).join(" ")}
+      className={[styles.nextsteps, isMobile && styles.stacked, className]
+        .filter(Boolean)
+        .join(" ")}
       size="lg">
       <CardBody>
         <FlexBox direction="column" id="social" gap={6}>
@@ -31,52 +35,47 @@ export function Connect({ className }: Props): React.JSX.Element {
 
           <ul>
             <li>
-              <Button>GitHub</Button>
-              {/* <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className={styles["button-icon"]}
-                  role="presentation"
-                  aria-hidden="true">
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a> */}
+              <ButtonLink
+                href="https://vite.dev/"
+                external
+                variant="surface"
+                iconPosition="start"
+                icon={GitFork}>
+                Github
+              </ButtonLink>
             </li>
+
             <li>
-              <Button>Discord</Button>
-              {/* <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className={styles["button-icon"]}
-                  role="presentation"
-                  aria-hidden="true">
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
+              <ButtonLink
+                href="https://vite.dev/"
+                external
+                variant="surface"
+                iconPosition="start"
+                icon={Gamepad}>
                 Discord
-              </a> */}
+              </ButtonLink>
             </li>
+
             <li>
-              <Button>X.com</Button>
-              {/* <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className={styles["button-icon"]}
-                  role="presentation"
-                  aria-hidden="true">
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
+              <ButtonLink
+                href="https://vite.dev/"
+                external
+                variant="surface"
+                iconPosition="start"
+                icon={X}>
                 X.com
-              </a> */}
+              </ButtonLink>
             </li>
+
             <li>
-              <Button>Bluesky</Button>
-              {/* <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className={styles["button-icon"]}
-                  role="presentation"
-                  aria-hidden="true">
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
+              <ButtonLink
+                href="https://vite.dev/"
+                external
+                variant="surface"
+                iconPosition="start"
+                icon={Cloud}>
                 Bluesky
-              </a> */}
+              </ButtonLink>
             </li>
           </ul>
         </FlexBox>

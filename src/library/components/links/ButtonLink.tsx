@@ -8,7 +8,7 @@ import { Link, type To } from "react-router-dom";
 
 import type { Radius, Size, Tone, Variant } from "../button/buttons";
 
-import "./ButtonLink.module.scss";
+import styles from "./ButtonLink.module.scss";
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 
@@ -66,31 +66,31 @@ export function ButtonLink({
     rel ?? (linkTarget === "_blank" ? "noopener noreferrer" : undefined);
 
   const buttonClasses = [
-    "button-link",
-    `tone-${tone}`,
-    `variant-${variant}`,
-    `size-${size}`,
-    `radius-${radius}`,
+    styles["button-link"],
+    styles[`tone-${tone}`],
+    styles[`variant-${variant}`],
+    styles[`size-${size}`],
+    styles[`radius-${radius}`],
     className,
   ]
     .filter(Boolean)
     .join(" ");
 
   const content = (
-    <span className="button__content">
+    <span className={styles.button__content}>
       {Icon && iconPosition === "start" && (
         <Icon
-          className="button__icon button__icon--start"
+          className={`${styles.button__icon} ${styles["button__icon--start"]}`}
           aria-hidden="true"
           strokeWidth={3}
         />
       )}
 
-      <span className="button__label">{children}</span>
+      <span className={styles.button__label}>{children}</span>
 
       {Icon && iconPosition === "end" && (
         <Icon
-          className="button__icon button__icon--end"
+          className={`${styles.button__icon} ${styles["button__icon--end"]}`}
           aria-hidden="true"
           strokeWidth={3}
         />

@@ -4,7 +4,7 @@ import type { To } from "react-router-dom";
 import { ButtonLink } from "@/library/components/links/ButtonLink";
 import type { Radius, Size, Tone, Variant } from "../button/buttons";
 
-import "./IconButtonLink.module.scss";
+import styles from "./IconButtonLink.module.scss";
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 
@@ -52,7 +52,11 @@ export function IconButtonLink({
       tone={tone}
       size={size}
       radius={radius}
-      className={["link-icon__button", `link-icon-btn-size-${size}`, className]
+      className={[
+        styles.linkIconButton,
+        styles[`link-icon-btn-size-${size}`],
+        className,
+      ]
         .filter(Boolean)
         .join(" ")}
       aria-label={label}>

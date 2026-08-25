@@ -2,7 +2,7 @@ import type { AnchorHTMLAttributes, ReactNode } from "react";
 
 import type { Tone } from "./links";
 
-import "./BaseLink.module.scss";
+import styles from "./BaseLink.module.scss";
 
 type BaseLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -28,7 +28,7 @@ export function BaseLink({
     <a
       {...rest}
       href={href}
-      className={["base-link", `tone-${tone}`, className]
+      className={[styles["base-link"], styles[`tone-${tone}`], className]
         .filter(Boolean)
         .join(" ")}
       target={resolvedTarget}
