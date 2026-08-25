@@ -1,0 +1,52 @@
+$button-sizes: (
+  sm: (
+    icon: 0.875em,
+  ),
+  md: (
+    icon: 1.1429em,
+  ),
+  lg: (
+    icon: 1.25em,
+  ),
+  xl: (
+    icon: 1.375em,
+  ),
+);
+
+.link-icon__button {
+  padding: 0;
+  aspect-ratio: 1 / 1;
+
+  .button__content {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+  }
+
+  .button__label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    line-height: 1;
+  }
+
+  svg {
+    display: block;
+  }
+
+  @each $size, $values in $button-sizes {
+    &.size-#{$size},
+    &.link-icon-btn-size-#{$size} {
+      svg {
+        width: deep-get($values, icon);
+        height: deep-get($values, icon);
+      }
+    }
+  }
+}
