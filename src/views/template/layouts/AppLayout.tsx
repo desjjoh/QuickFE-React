@@ -1,6 +1,6 @@
 import { cloneElement, type ReactElement } from "react";
 
-import styles from "./AppLayout.module.scss";
+import styles from "../styles/AppLayout.module.scss";
 
 type LayoutElement = ReactElement<{
   className?: string;
