@@ -36,7 +36,7 @@ export function Connect({ className }: Props): React.JSX.Element {
           <ul>
             <li>
               <ButtonLink
-                href="https://vite.dev/"
+                href="https://github.com/vitejs/vite"
                 external
                 variant="surface"
                 iconPosition="start"
@@ -47,7 +47,7 @@ export function Connect({ className }: Props): React.JSX.Element {
 
             <li>
               <ButtonLink
-                href="https://vite.dev/"
+                href="https://chat.vite.dev/"
                 external
                 variant="surface"
                 iconPosition="start"
@@ -58,7 +58,7 @@ export function Connect({ className }: Props): React.JSX.Element {
 
             <li>
               <ButtonLink
-                href="https://vite.dev/"
+                href="https://x.com/vite_js"
                 external
                 variant="surface"
                 iconPosition="start"
@@ -69,7 +69,7 @@ export function Connect({ className }: Props): React.JSX.Element {
 
             <li>
               <ButtonLink
-                href="https://vite.dev/"
+                href="https://bsky.app/profile/vite.dev"
                 external
                 variant="surface"
                 iconPosition="start"
