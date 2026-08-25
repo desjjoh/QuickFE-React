@@ -8,6 +8,7 @@ import { FlexBox } from "@/library/components/flex/FlexBox";
 
 import styles from "../styles/App.module.scss";
 import { useViewport } from "@/shared/hooks/useViewport";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   className?: string;
@@ -15,6 +16,7 @@ type Props = {
 
 export function Documentation({ className }: Props): React.JSX.Element {
   const { isMobile } = useViewport();
+  const { t } = useTranslation();
 
   return (
     <Card
@@ -28,8 +30,10 @@ export function Documentation({ className }: Props): React.JSX.Element {
             <FileCodeCorner size={24} className={styles.icon} />
 
             <FlexBox direction="column">
-              <BlockText element="h4">Documentation</BlockText>
-              <BlockText>Your questions, answered</BlockText>
+              <BlockText element="h4">
+                {t("template.documentation.heading")}
+              </BlockText>
+              <BlockText>{t("template.documentation.description")}</BlockText>
             </FlexBox>
           </FlexBox>
 
@@ -41,7 +45,7 @@ export function Documentation({ className }: Props): React.JSX.Element {
                 variant="surface"
                 iconPosition="start"
                 icon={Zap}>
-                Explore Vite
+                {t("template.documentation.viteLink")}
               </ButtonLink>
             </li>
             <li>
@@ -51,7 +55,7 @@ export function Documentation({ className }: Props): React.JSX.Element {
                 variant="surface"
                 iconPosition="start"
                 icon={Atom}>
-                Learn more
+                {t("template.documentation.reactLink")}
               </ButtonLink>
             </li>
           </ul>

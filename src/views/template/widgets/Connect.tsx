@@ -1,4 +1,5 @@
 import { Cloud, Gamepad, GitFork, UserStar, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import { BlockText } from "@/library/components/text/BlockText";
 import { Card } from "@/library/components/card/BaseCard";
@@ -15,6 +16,7 @@ type Props = {
 
 export function Connect({ className }: Props): React.JSX.Element {
   const { isMobile } = useViewport();
+  const { t } = useTranslation();
 
   return (
     <Card
@@ -28,8 +30,10 @@ export function Connect({ className }: Props): React.JSX.Element {
             <UserStar size={24} className={styles.icon} />
 
             <FlexBox direction="column">
-              <BlockText element="h4">Connect with us</BlockText>
-              <BlockText>Join the Vite community</BlockText>
+              <BlockText element="h4">
+                {t("template.connect.heading")}
+              </BlockText>
+              <BlockText>{t("template.connect.description")}</BlockText>
             </FlexBox>
           </FlexBox>
 
@@ -41,7 +45,7 @@ export function Connect({ className }: Props): React.JSX.Element {
                 variant="surface"
                 iconPosition="start"
                 icon={GitFork}>
-                Github
+                {t("template.connect.githubLink")}
               </ButtonLink>
             </li>
 
@@ -52,7 +56,7 @@ export function Connect({ className }: Props): React.JSX.Element {
                 variant="surface"
                 iconPosition="start"
                 icon={Gamepad}>
-                Discord
+                {t("template.connect.discordLink")}
               </ButtonLink>
             </li>
 
@@ -63,7 +67,7 @@ export function Connect({ className }: Props): React.JSX.Element {
                 variant="surface"
                 iconPosition="start"
                 icon={X}>
-                X.com
+                {t("template.connect.xLink")}
               </ButtonLink>
             </li>
 
@@ -74,7 +78,7 @@ export function Connect({ className }: Props): React.JSX.Element {
                 variant="surface"
                 iconPosition="start"
                 icon={Cloud}>
-                Bluesky
+                {t("template.connect.blueskyLink")}
               </ButtonLink>
             </li>
           </ul>

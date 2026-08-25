@@ -1,0 +1,23 @@
+{
+  "hero": {
+    "reactLogoAlt": "React logo",
+    "viteLogoAlt": "Vite logo",
+    "heading": "Get started",
+    "instruction": "Edit <file>src/App.tsx</file> and save to test <hmr>HMR</hmr>",
+    "count": "Count is {{count}}"
+  },
+  "documentation": {
+    "heading": "Documentation",
+    "description": "Your questions, answered",
+    "viteLink": "Explore Vite",
+    "reactLink": "Learn more"
+  },
+  "connect": {
+    "heading": "Connect with us",
+    "description": "Join the Vite community",
+    "githubLink": "Github",
+    "discordLink": "Discord",
+    "xLink": "X.com",
+    "blueskyLink": "Bluesky"
+  }
+}

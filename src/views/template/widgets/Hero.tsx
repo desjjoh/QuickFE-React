@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 
 import { BlockText } from "@/library/components/text/BlockText";
 import { InlineText } from "@/library/components/text/InlineText";
@@ -17,6 +18,7 @@ type Props = {
 
 export function Hero({ className }: Props): React.JSX.Element {
   const [count, setCount] = useState(0);
+  const { t } = useTranslation();
 
   return (
     <section className={[styles.center, className].filter(Boolean).join(" ")}>
@@ -29,22 +31,35 @@ export function Hero({ className }: Props): React.JSX.Element {
             height="179"
             alt=""
           />
-          <img src={reactLogo} className={styles.framework} alt="React logo" />
-          <img src={viteLogo} className={styles.vite} alt="Vite logo" />
+          <img
+            src={reactLogo}
+            className={styles.framework}
+            alt={t("template.hero.reactLogoAlt")}
+          />
+          <img
+            src={viteLogo}
+            className={styles.vite}
+            alt={t("template.hero.viteLogoAlt")}
+          />
         </div>
 
         <FlexBox direction="column" gap={1} alignItems="center">
-          <BlockText element="h1">Get started</BlockText>
+          <BlockText element="h1">{t("template.hero.heading")}</BlockText>
           <BlockText>
-            Edit <InlineText element="code">src/App.tsx</InlineText> and save to
-            test <InlineText element="code">HMR</InlineText>
+            <Trans
+              i18nKey="template.hero.instruction"
+              components={{
+                file: <InlineText element="code" />,
+                hmr: <InlineText element="code" />,
+              }}
+            />
           </BlockText>
         </FlexBox>
 
         <Button
           variant="outline"
           onClick={() => setCount((count) => count + 1)}>
-          Count is {count}
+          {t("template.hero.count", { count })}
         </Button>
       </FlexBox>
     </section>
