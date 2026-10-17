@@ -7,8 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "format": "prettier --write src/ test/ docs/ .github/ \"*.{json,ts,js,md,html,yml,yaml}\"",
-    "format:check": "prettier --check src/ test/ docs/ .github/ \"*.{json,ts,js,md,html,yml,yaml}\"",
+    "format": "prettier --write --no-error-on-unmatched-pattern src/ test/ docs/ .github/ \"*.{json,ts,js,md,html,yml,yaml}\"",
+    "format:check": "prettier --check --no-error-on-unmatched-pattern src/ test/ docs/ .github/ \"*.{json,ts,js,md,html,yml,yaml}\"",
     "type-check": "tsc -b",
     "test:theme": "node --test test/unit/stores/theme.test.mjs",
     "preview": "vite preview"
