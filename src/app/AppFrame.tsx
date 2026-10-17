@@ -4,7 +4,8 @@ import { NavBar } from "@/library/components/navbar/NavBar";
 import { useViewport } from "@/shared/hooks/useViewport";
 import { BrandNavigation } from "./widgets/navigation/BrandNavigation";
 import { MainNavigation } from "./widgets/navigation/MainNavigation";
-import { mainNavigation } from "./config/navigation";
+import { mainNavigation, moreNavigation } from "./config/navigation";
+import { MoreDropdown } from "./widgets/dropdowns/MoreDropdown";
 import { FlexBox } from "@/library/components/flex/FlexBox";
 import { ThemeToggle } from "./widgets/buttons/ThemeToggle";
 
@@ -31,6 +32,7 @@ function AppFrame(): React.JSX.Element {
     <React.Fragment>
       <BrandNavigation />
       <MainNavigation routes={mainNavigation} />
+      <MoreDropdown routes={moreNavigation} />
     </React.Fragment>
   ) : null;
 

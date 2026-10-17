@@ -1,5 +1,18 @@
 {
   "brand": {
     "name": "QuickFE"
+  },
+  "routes": {
+    "about": "About",
+    "blog": "Blog",
+    "contactUs": "Contact Us",
+    "developers": "Developers",
+    "events": "Events",
+    "jobs": "Jobs",
+    "partners": "Partners",
+    "playground": "Playground",
+    "privacy": "Privacy Notice",
+    "template": "Template",
+    "terms": "Terms of Service"
   }
 }
