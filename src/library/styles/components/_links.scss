@@ -1,0 +1,55 @@
+@use "@/library/styles/globals" as *;
+@use "@/library/styles/variables" as *;
+
+@mixin link {
+  font: inherit;
+  font-weight: font-weight(semibold);
+  color: var(--link-fg, currentColor);
+  text-underline-offset: 0.15em;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+
+  &.underline-always {
+    text-decoration: underline;
+  }
+
+  &.underline-hover {
+    text-decoration: none;
+
+    &:focus-visible {
+      text-decoration: underline;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &.tone-inherit {
+    --link-fg: inherit;
+  }
+
+  @each $tone in (primary, neutral, success, warning, danger, info) {
+    &.tone-#{$tone} {
+      --link-fg: #{color(theme, $tone, theme, 11)};
+    }
+
+    &.tone-#{$tone}:focus-visible,
+    &.tone-#{$tone}:active {
+      --link-fg: #{color(theme, $tone, theme, 12)};
+    }
+
+    @media (hover: hover) {
+      &.tone-#{$tone}:hover {
+        --link-fg: #{color(theme, $tone, theme, 12)};
+      }
+    }
+  }
+}
+

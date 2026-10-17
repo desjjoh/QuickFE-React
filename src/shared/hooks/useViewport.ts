@@ -25,10 +25,12 @@ const BREAKPOINTS = {
 
 let initialized = false;
 
-let viewportState: ViewportState = {
+const serverSnapshot: ViewportState = {
   width: 0,
   height: 0,
 };
+
+let viewportState = serverSnapshot;
 
 const subscribers = new Set<() => void>();
 
@@ -91,10 +93,7 @@ function getSnapshot(): ViewportState {
 }
 
 function getServerSnapshot(): ViewportState {
-  return {
-    width: 0,
-    height: 0,
-  };
+  return serverSnapshot;
 }
 
 export function useViewport(): Viewport {

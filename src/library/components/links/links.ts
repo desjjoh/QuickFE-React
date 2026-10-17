@@ -4,4 +4,7 @@ export type Tone =
   | "success"
   | "warning"
   | "danger"
-  | "info";
+  | "info"
+  | "inherit";
+
+export type Underline = "always" | "hover";

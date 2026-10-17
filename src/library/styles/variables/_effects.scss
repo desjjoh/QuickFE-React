@@ -1,5 +1,5 @@
-@use "@/library/styles/globals" as *;
-@use "@/library/styles/variables/_colors" as *;
+@use '@/library/styles/globals' as *;
+@use '@/library/styles/variables/_colors' as *;
 
 $box-shadow: (
   none: none,
@@ -10,10 +10,7 @@ $box-shadow: (
   ),
 
   1: (
-    inset 0 -1px 1px color(shadow, soft),
-    inset 0 0 0 1px color(shadow, soft),
-    inset 0 3px 4px color(shadow, base),
-    inset 0 0 0 1px color(shadow, outline),
+    0 0 0 1px color(shadow, outline),
   ),
 
   2: (
@@ -50,7 +47,7 @@ $box-shadow: (
 );
 
 @function box-shadow($key) {
-  @return token($box-shadow, $key, "box-shadow");
+  @return token($box-shadow, $key, 'box-shadow');
 }
 
 $backdrop-blur: 0.4rem;

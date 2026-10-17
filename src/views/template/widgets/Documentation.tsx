@@ -25,9 +25,13 @@ export function Documentation({ className }: Props): React.JSX.Element {
         .join(" ")}
       size="lg">
       <CardBody>
-        <FlexBox direction="column" id="social" gap={6}>
+        <FlexBox direction="column" id="documentation" gap={6}>
           <FlexBox alignItems="center" gap={3}>
-            <FileCodeCorner size={24} className={styles.icon} />
+            <FileCodeCorner
+              size={24}
+              strokeWidth={2.5}
+              className={styles.icon}
+            />
 
             <FlexBox direction="column">
               <BlockText element="h4">

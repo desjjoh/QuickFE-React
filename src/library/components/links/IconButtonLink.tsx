@@ -10,10 +10,10 @@ type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 
 type IconButtonLinkProps = Omit<
   AnchorHTMLAttributes<HTMLAnchorElement>,
-  "href" | "children"
+  "href" | "children" | "aria-label" | "aria-labelledby"
 > & {
   icon: IconComponent;
-  label?: string;
+  label: string;
   to?: To;
   href?: string;
   external?: boolean;

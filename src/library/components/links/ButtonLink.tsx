@@ -52,8 +52,18 @@ export function ButtonLink({
   iconPosition = "end",
   children,
   className,
+  onClick,
+  tabIndex,
   ...rest
 }: ButtonLinkProps): React.JSX.Element {
+  const disabled = rest["aria-disabled"] === true || rest["aria-disabled"] === "true";
+  const handleClick: React.MouseEventHandler<HTMLAnchorElement> = (event) => {
+    if (disabled) {
+      event.preventDefault();
+      return;
+    }
+    onClick?.(event);
+  };
   const stringDestination = typeof to === "string" ? to : href;
   const usesRouterLink =
     isRouteObject(to) || (!external && !isAbsoluteUrl(stringDestination));
@@ -102,6 +112,8 @@ export function ButtonLink({
     return (
       <Link
         {...rest}
+        onClick={handleClick}
+        tabIndex={disabled ? -1 : tabIndex}
         to={routerDestination}
         target={linkTarget}
         rel={linkRel}
@@ -114,6 +126,8 @@ export function ButtonLink({
   return (
     <a
       {...rest}
+      onClick={handleClick}
+      tabIndex={disabled ? -1 : tabIndex}
       href={anchorHref}
       target={linkTarget}
       rel={linkRel}

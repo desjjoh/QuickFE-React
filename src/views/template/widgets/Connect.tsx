@@ -27,7 +27,7 @@ export function Connect({ className }: Props): React.JSX.Element {
       <CardBody>
         <FlexBox direction="column" id="social" gap={6}>
           <FlexBox alignItems="center" gap={3}>
-            <UserStar size={24} className={styles.icon} />
+            <UserStar size={24} strokeWidth={2.5} className={styles.icon} />
 
             <FlexBox direction="column">
               <BlockText element="h4">

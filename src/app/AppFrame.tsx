@@ -1,11 +1,14 @@
 import { useEffect, useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import { NavBar } from "@/library/components/navbar/NavBar";
+import { useViewport } from "@/shared/hooks/useViewport";
 
-import styles from "./styles/App.module.scss";
+import styles from "./styles/AppFrame.module.scss";
 
-function App(): React.JSX.Element {
+function AppFrame(): React.JSX.Element {
   const contentRef = useRef<HTMLElement>(null);
   const { pathname } = useLocation();
+  const { isDesktop } = useViewport();
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
@@ -22,10 +25,13 @@ function App(): React.JSX.Element {
   return (
     <div className={styles.appFrame}>
       <main ref={contentRef} className={styles.frameMain} data-app-shell-scroll>
+        <header className={styles.frameHeader}>
+          <NavBar centered={!isDesktop} />
+        </header>
         <Outlet />
       </main>
     </div>
   );
 }
 
-export default App;
+export default AppFrame;

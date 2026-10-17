@@ -50,20 +50,20 @@ export function Button({
         loading && styles["is-loading"],
         className,
       )}>
-      <span className={styles.buttonContent}>
+      <span className={styles["button__content"]}>
         {Icon && iconPosition === "start" && (
           <Icon
-            className={classNames(styles.buttonIcon, styles.buttonIconStart)}
+            className={classNames(styles["button__icon"], styles["button__icon--start"])}
             aria-hidden="true"
             strokeWidth={3}
           />
         )}
 
-        <span className={styles.buttonLabel}>{children}</span>
+        <span className={styles["button__label"]}>{children}</span>
 
         {Icon && iconPosition === "end" && (
           <Icon
-            className={classNames(styles.buttonIcon, styles.buttonIconEnd)}
+            className={classNames(styles["button__icon"], styles["button__icon--end"])}
             aria-hidden="true"
             strokeWidth={3}
           />

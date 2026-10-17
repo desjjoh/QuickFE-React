@@ -1,33 +1,5 @@
-$link-tones: (
-  primary: primary,
-  neutral: neutral,
-  success: success,
-  warning: warning,
-  danger: danger,
-  info: info,
-);
+@use "@/library/styles/components/links" as link;
 
 .base-link {
-  font: inherit;
-  color: var(--link-fg, currentColor);
-  text-underline-offset: 0.15em;
-  cursor: pointer;
-
-  &:focus-visible {
-    outline: none;
-  }
-
-  @each $tone, $palette in $link-tones {
-    &.tone-#{$tone} {
-      --link-fg: #{color(theme, #{$palette}, theme, 11)};
-    }
-
-    @media (hover: hover) {
-      &.tone-#{$tone}:hover,
-      &.tone-#{$tone}:focus-visible,
-      &.tone-#{$tone}:active {
-        --link-fg: #{color(theme, #{$palette}, theme, 12)};
-      }
-    }
-  }
+  @include link.link;
 }

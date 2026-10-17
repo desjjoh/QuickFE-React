@@ -1,17 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import App from "@/app/App";
-import { Template } from "@/views";
+import AppFrame from "@/app/AppFrame";
+import { routes } from "./routes";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    Component: App,
-    children: [
-      {
-        index: true,
-        Component: Template,
-      },
-    ],
+    Component: AppFrame,
+    children: routes,
   },
 ]);
