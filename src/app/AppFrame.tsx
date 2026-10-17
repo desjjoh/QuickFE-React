@@ -2,16 +2,19 @@ import React, { useEffect, useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { NavBar } from "@/library/components/navbar/NavBar";
 import { useViewport } from "@/shared/hooks/useViewport";
+import { useDynamicPageTitle } from "@/shared/hooks/useDynamicTitle";
 import { BrandNavigation } from "./widgets/navigation/BrandNavigation";
 import { MainNavigation } from "./widgets/navigation/MainNavigation";
 import { mainNavigation, moreNavigation } from "./config/navigation";
 import { MoreDropdown } from "./widgets/dropdowns/MoreDropdown";
 import { FlexBox } from "@/library/components/flex/FlexBox";
 import { ThemeToggle } from "./widgets/buttons/ThemeToggle";
+import { LanguageDropdown } from "./widgets/dropdowns/LanguageDropdown";
 
 import styles from "./styles/AppFrame.module.scss";
 
 function AppFrame(): React.JSX.Element {
+  useDynamicPageTitle();
   const contentRef = useRef<HTMLElement>(null);
   const { pathname } = useLocation();
   const { isDesktop } = useViewport();
@@ -40,6 +43,7 @@ function AppFrame(): React.JSX.Element {
   const navigationEnd = isDesktop ? (
     <FlexBox gap={2}>
       <ThemeToggle />
+      <LanguageDropdown contentAlign="end" />
     </FlexBox>
   ) : null;
 
