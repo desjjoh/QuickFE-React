@@ -1,4 +1,4 @@
-@use "@/library/styles/components" as button;
+@use '@/library/styles/components' as button;
 
 .button {
   @include button.interactive-control;

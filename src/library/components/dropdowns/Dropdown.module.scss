@@ -144,15 +144,29 @@ $dropdown-menu-tones: (
 }
 
 @keyframes dropdown-enter {
-  from { opacity: 0; transform: translateY(-4px) scale(0.98); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @keyframes dropdown-leave {
-  from { opacity: 1; transform: translateY(0) scale(1); }
-  to { opacity: 0; transform: translateY(-4px) scale(0.98); }
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .dropdown__menu[data-state] { animation: none; }
+  .dropdown__menu[data-state] {
+    animation: none;
+  }
 }

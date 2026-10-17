@@ -1,19 +1,19 @@
-import { useMemo, useSyncExternalStore } from "react";
+import { useMemo, useSyncExternalStore } from 'react'
 
-export type Breakpoint = "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+export type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 
 type ViewportState = {
-  width: number;
-  height: number;
-};
+  width: number
+  height: number
+}
 
 type Viewport = ViewportState & {
-  breakpoint: Breakpoint;
-  isMobile: boolean;
-  isTablet: boolean;
-  isTabletUp: boolean;
-  isDesktop: boolean;
-};
+  breakpoint: Breakpoint
+  isMobile: boolean
+  isTablet: boolean
+  isTabletUp: boolean
+  isDesktop: boolean
+}
 
 const BREAKPOINTS = {
   SM: 576,
@@ -21,87 +21,80 @@ const BREAKPOINTS = {
   LG: 992,
   XL: 1200,
   XXL: 1400,
-} as const;
+} as const
 
-let initialized = false;
+let initialized = false
 
 const serverSnapshot: ViewportState = {
   width: 0,
   height: 0,
-};
+}
 
-let viewportState = serverSnapshot;
+let viewportState = serverSnapshot
 
-const subscribers = new Set<() => void>();
+const subscribers = new Set<() => void>()
 
 function getBreakpoint(width: number): Breakpoint {
-  if (width >= BREAKPOINTS.XXL) return "xxl";
-  if (width >= BREAKPOINTS.XL) return "xl";
-  if (width >= BREAKPOINTS.LG) return "lg";
-  if (width >= BREAKPOINTS.MD) return "md";
-  if (width >= BREAKPOINTS.SM) return "sm";
+  if (width >= BREAKPOINTS.XXL) return 'xxl'
+  if (width >= BREAKPOINTS.XL) return 'xl'
+  if (width >= BREAKPOINTS.LG) return 'lg'
+  if (width >= BREAKPOINTS.MD) return 'md'
+  if (width >= BREAKPOINTS.SM) return 'sm'
 
-  return "xs";
+  return 'xs'
 }
 
 function notifySubscribers(): void {
   subscribers.forEach((subscriber) => {
-    subscriber();
-  });
+    subscriber()
+  })
 }
 
 function updateViewport(): void {
   const nextState: ViewportState = {
     width: window.innerWidth,
     height: window.innerHeight,
-  };
-
-  if (
-    nextState.width === viewportState.width &&
-    nextState.height === viewportState.height
-  ) {
-    return;
   }
 
-  viewportState = nextState;
+  if (nextState.width === viewportState.width && nextState.height === viewportState.height) {
+    return
+  }
 
-  notifySubscribers();
+  viewportState = nextState
+
+  notifySubscribers()
 }
 
 export function initViewport(): void {
-  if (initialized || typeof window === "undefined") return;
+  if (initialized || typeof window === 'undefined') return
 
-  initialized = true;
+  initialized = true
 
-  updateViewport();
+  updateViewport()
 
-  window.addEventListener("resize", updateViewport, { passive: true });
+  window.addEventListener('resize', updateViewport, { passive: true })
 }
 
 function subscribe(callback: () => void): () => void {
-  subscribers.add(callback);
+  subscribers.add(callback)
 
-  initViewport();
+  initViewport()
 
   return () => {
-    subscribers.delete(callback);
-  };
+    subscribers.delete(callback)
+  }
 }
 
 function getSnapshot(): ViewportState {
-  return viewportState;
+  return viewportState
 }
 
 function getServerSnapshot(): ViewportState {
-  return serverSnapshot;
+  return serverSnapshot
 }
 
 export function useViewport(): Viewport {
-  const { width, height } = useSyncExternalStore(
-    subscribe,
-    getSnapshot,
-    getServerSnapshot,
-  );
+  const { width, height } = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
 
   return useMemo<Viewport>(() => {
     return {
@@ -112,6 +105,6 @@ export function useViewport(): Viewport {
       isTablet: width >= BREAKPOINTS.MD && width < BREAKPOINTS.XXL,
       isTabletUp: width >= BREAKPOINTS.MD,
       isDesktop: width >= BREAKPOINTS.XXL,
-    };
-  }, [width, height]);
+    }
+  }, [width, height])
 }

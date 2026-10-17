@@ -1,29 +1,29 @@
-import type { AnchorHTMLAttributes, ComponentType, SVGProps } from "react";
-import type { To } from "react-router-dom";
+import type { AnchorHTMLAttributes, ComponentType, SVGProps } from 'react'
+import type { To } from 'react-router-dom'
 
-import { ButtonLink } from "@/library/components/links/ButtonLink";
-import type { Radius, Size, Tone, Variant } from "../button/buttons";
+import { ButtonLink } from '@/library/components/links/ButtonLink'
+import type { Radius, Size, Tone, Variant } from '../button/buttons'
 
-import styles from "../button/Button.module.scss";
+import styles from '../button/Button.module.scss'
 
-type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
+type IconComponent = ComponentType<SVGProps<SVGSVGElement>>
 
 type IconButtonLinkProps = Omit<
   AnchorHTMLAttributes<HTMLAnchorElement>,
-  "href" | "children" | "aria-label" | "aria-labelledby"
+  'href' | 'children' | 'aria-label' | 'aria-labelledby'
 > & {
-  icon: IconComponent;
-  label: string;
-  to?: To;
-  href?: string;
-  external?: boolean;
-  target?: string;
-  rel?: string;
-  variant?: Variant;
-  tone?: Tone;
-  size?: Size;
-  radius?: Radius;
-};
+  icon: IconComponent
+  label: string
+  to?: To
+  href?: string
+  external?: boolean
+  target?: string
+  rel?: string
+  variant?: Variant
+  tone?: Tone
+  size?: Size
+  radius?: Radius
+}
 
 export function IconButtonLink({
   icon: Icon,
@@ -33,10 +33,10 @@ export function IconButtonLink({
   external = false,
   target,
   rel,
-  variant = "solid",
-  tone = "primary",
-  size = "md",
-  radius = "sm",
+  variant = 'solid',
+  tone = 'primary',
+  size = 'md',
+  radius = 'sm',
   className,
   ...rest
 }: IconButtonLinkProps): React.JSX.Element {
@@ -52,15 +52,12 @@ export function IconButtonLink({
       tone={tone}
       size={size}
       radius={radius}
-      className={[
-        styles.iconButton,
-        styles[`icon-size-${size}`],
-        className,
-      ]
+      className={[styles.iconButton, styles[`icon-size-${size}`], className]
         .filter(Boolean)
-        .join(" ")}
-      aria-label={label}>
+        .join(' ')}
+      aria-label={label}
+    >
       <Icon aria-hidden="true" strokeWidth={2.75} />
     </ButtonLink>
-  );
+  )
 }

@@ -1,13 +1,13 @@
-import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 
-import styles from "./NavBar.module.scss";
+import styles from './NavBar.module.scss'
 
-type Props = Omit<ComponentPropsWithoutRef<"nav">, "children"> & {
-  centered?: boolean;
-  start?: ReactNode;
-  center?: ReactNode;
-  end?: ReactNode;
-};
+type Props = Omit<ComponentPropsWithoutRef<'nav'>, 'children'> & {
+  centered?: boolean
+  start?: ReactNode
+  center?: ReactNode
+  end?: ReactNode
+}
 
 export function NavBar({
   centered = false,
@@ -21,12 +21,13 @@ export function NavBar({
     <nav
       aria-label="Primary navigation"
       {...props}
-      className={[styles["nav-bar"], centered && styles["is-centered"], className]
+      className={[styles['nav-bar'], centered && styles['is-centered'], className]
         .filter(Boolean)
-        .join(" ")}>
-      <div className={styles["nav-bar__start"]}>{start}</div>
-      <div className={styles["nav-bar__center"]}>{center}</div>
-      <div className={styles["nav-bar__end"]}>{end}</div>
+        .join(' ')}
+    >
+      <div className={styles['nav-bar__start']}>{start}</div>
+      <div className={styles['nav-bar__center']}>{center}</div>
+      <div className={styles['nav-bar__end']}>{end}</div>
     </nav>
-  );
+  )
 }

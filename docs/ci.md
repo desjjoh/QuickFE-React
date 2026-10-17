@@ -1,20 +1,24 @@
 # Continuous integration
 
 `.github/workflows/ci.yml` mirrors Vue's workflow triggers and job separation,
-initially limited to linting and TypeScript checking.
+covering formatting, linting, and TypeScript checking.
 
 - Pull requests into `dev`, `staging`, and `main` run CI.
 - Pushes to those branches, merge-queue groups, manual dispatches, and reusable
   workflow calls also run CI.
 - `Linting` runs `npm run lint` after `npm ci`.
+- `Formatting` runs `npm run format:check` after `npm ci`. Run `npm run format`
+  locally to apply formatting. Both commands cover source, manual fixtures,
+  documentation, GitHub configuration, and root configuration files using Vue's
+  Prettier settings (no semicolons, single quotes, and a 100-column print width).
 - `Type checking` runs `npm run type-check` after `npm ci`. The root TypeScript
   configuration includes application/manual-fixture types and Vite configuration.
-- `Check` runs even when a dependency fails and accepts only `success` from both
+- `Check` runs even when a dependency fails and accepts only `success` from all three
   jobs. Failed, cancelled, skipped, or missing results do not pass.
 
 The workflow uses Node 22, the same action versions as Vue, npm caching,
 read-only repository permissions, timeouts, and cancellation of superseded runs.
-This first workflow does not run builds, formatting, security audits, or tests.
+This workflow does not run builds, security audits, or tests.
 
 ## Branch rules
 
