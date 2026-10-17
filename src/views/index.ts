@@ -1,1 +1,1 @@
-export { default as Template } from "./template/App";
+export { default as Template } from './template/App'

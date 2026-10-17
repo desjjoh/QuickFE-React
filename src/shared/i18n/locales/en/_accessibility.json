@@ -1,5 +1,6 @@
 {
   "primaryNavigation": "Primary navigation",
   "logoAlt": "React logo",
-  "languageMenu": "Choose language"
+  "languageMenu": "Choose language",
+  "iconButton": "Icon button"
 }

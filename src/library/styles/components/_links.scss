@@ -1,5 +1,5 @@
-@use "@/library/styles/globals" as *;
-@use "@/library/styles/variables" as *;
+@use '@/library/styles/globals' as *;
+@use '@/library/styles/variables' as *;
 
 @mixin link {
   font: inherit;
@@ -52,4 +52,3 @@
     }
   }
 }
-

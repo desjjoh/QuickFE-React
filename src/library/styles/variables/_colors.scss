@@ -1,11 +1,11 @@
-@use "@/library/styles/globals" as *;
-@use "@/library/styles/palette" as *;
+@use '@/library/styles/globals' as *;
+@use '@/library/styles/palette' as *;
 
-@use "sass:color";
+@use 'sass:color';
 
-@use "sass:list";
-@use "sass:map";
-@use "sass:meta";
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
 
 // Natural pairing
 // https://www.radix-ui.com/colors/docs/palette-composition/composing-a-palette
@@ -132,11 +132,7 @@ $solid-dark-text-colors: (amber, yellow, lime, mint, sky);
   $theme-palettes: ();
 
   @each $color-name, $value in $palettes {
-    $theme-palettes: map.set(
-      $theme-palettes,
-      $color-name,
-      build-theme-palette($mode, $color-name)
-    );
+    $theme-palettes: map.set($theme-palettes, $color-name, build-theme-palette($mode, $color-name));
   }
 
   @return $theme-palettes;
@@ -209,10 +205,10 @@ $colors-light: build-colors(light);
 $colors-dark: build-colors(dark);
 
 @function color-var-name($keys...) {
-  $name: "--color";
+  $name: '--color';
 
   @each $key in $keys {
-    $name: "#{$name}-#{$key}";
+    $name: '#{$name}-#{$key}';
   }
 
   @return $name;
@@ -225,10 +221,7 @@ $colors-dark: build-colors(dark);
 // Fixed palette hue with a shade that follows the active light/dark mode.
 // palette-color(blue, 11) or palette-color(blue, 6, $alpha: true).
 @function palette-color($color-name, $step, $alpha: false) {
-  @if not
-    map.has-key($neutrals, $color-name) and not
-    map.has-key($accents, $color-name)
-  {
+  @if not map.has-key($neutrals, $color-name) and not map.has-key($accents, $color-name) {
     @error 'Unknown adaptive palette: #{$color-name}.';
   }
 
@@ -247,7 +240,7 @@ $colors-dark: build-colors(dark);
   @each $key, $value in $values {
     $keys: list.append($prefix, $key);
 
-    @if meta.type-of($value) == "map" {
+    @if meta.type-of($value) == 'map' {
       @include emit-color-vars($value, $keys);
     } @else {
       #{color-var-name($keys...)}: #{$value};

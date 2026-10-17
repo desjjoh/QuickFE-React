@@ -20,6 +20,17 @@ env:
   CI: 'true'
 
 jobs:
+  formatting:
+    name: Formatting
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run format:check
+
   linting:
     name: Linting
     runs-on: ubuntu-latest
@@ -46,14 +57,16 @@ jobs:
   check:
     name: Check
     if: always()
-    needs: [linting, type-checking]
+    needs: [formatting, linting, type-checking]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Require both verification jobs to succeed
+      - name: Require all verification jobs to succeed
         env:
+          FORMAT_RESULT: ${{ needs.formatting.result }}
           LINT_RESULT: ${{ needs.linting.result }}
           TYPE_CHECK_RESULT: ${{ needs.type-checking.result }}
         run: |
+          test "$FORMAT_RESULT" = success
           test "$LINT_RESULT" = success
           test "$TYPE_CHECK_RESULT" = success

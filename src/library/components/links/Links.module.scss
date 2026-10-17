@@ -1,4 +1,4 @@
-@use "@/library/styles/components/links" as link;
+@use '@/library/styles/components/links' as link;
 
 .link {
   @include link.link;

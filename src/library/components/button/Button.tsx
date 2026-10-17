@@ -1,36 +1,34 @@
-import type { ButtonHTMLAttributes } from "react";
-import { Loader2, type LucideIcon } from "lucide-react";
+import type { ButtonHTMLAttributes } from 'react'
+import { Loader2, type LucideIcon } from 'lucide-react'
 
-import type { Radius, Size, Tone, Variant } from "./buttons";
+import type { Radius, Size, Tone, Variant } from './buttons'
 
-import styles from "./Button.module.scss";
+import styles from './Button.module.scss'
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
-  loading?: boolean;
-  variant?: Variant;
-  tone?: Tone;
-  size?: Size;
-  radius?: Radius;
-  icon?: LucideIcon;
-  iconPosition?: "start" | "end";
-};
+  loading?: boolean
+  variant?: Variant
+  tone?: Tone
+  size?: Size
+  radius?: Radius
+  icon?: LucideIcon
+  iconPosition?: 'start' | 'end'
+}
 
-function classNames(
-  ...classes: Array<string | false | null | undefined>
-): string {
-  return classes.filter(Boolean).join(" ");
+function classNames(...classes: Array<string | false | null | undefined>): string {
+  return classes.filter(Boolean).join(' ')
 }
 
 export function Button({
-  type = "button",
+  type = 'button',
   disabled = false,
   loading = false,
-  variant = "solid",
-  tone = "primary",
-  size = "md",
-  radius = "sm",
+  variant = 'solid',
+  tone = 'primary',
+  size = 'md',
+  radius = 'sm',
   icon: Icon,
-  iconPosition = "end",
+  iconPosition = 'end',
   className,
   children,
   ...props
@@ -47,23 +45,24 @@ export function Button({
         styles[`variant-${variant}`],
         styles[`size-${size}`],
         styles[`radius-${radius}`],
-        loading && styles["is-loading"],
+        loading && styles['is-loading'],
         className,
-      )}>
-      <span className={styles["button__content"]}>
-        {Icon && iconPosition === "start" && (
+      )}
+    >
+      <span className={styles['button__content']}>
+        {Icon && iconPosition === 'start' && (
           <Icon
-            className={classNames(styles["button__icon"], styles["button__icon--start"])}
+            className={classNames(styles['button__icon'], styles['button__icon--start'])}
             aria-hidden="true"
             strokeWidth={3}
           />
         )}
 
-        <span className={styles["button__label"]}>{children}</span>
+        <span className={styles['button__label']}>{children}</span>
 
-        {Icon && iconPosition === "end" && (
+        {Icon && iconPosition === 'end' && (
           <Icon
-            className={classNames(styles["button__icon"], styles["button__icon--end"])}
+            className={classNames(styles['button__icon'], styles['button__icon--end'])}
             aria-hidden="true"
             strokeWidth={3}
           />
@@ -76,5 +75,5 @@ export function Button({
         </span>
       )}
     </button>
-  );
+  )
 }

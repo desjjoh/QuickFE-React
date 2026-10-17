@@ -15,7 +15,8 @@ Open state is local to each dropdown. No Redux slice or application-level host i
       variant="ghost"
       onClick={toggle}
     />
-  )}>
+  )}
+>
   <MenuViewport>
     <MenuRouter to="/profile">Profile</MenuRouter>
     <MenuSeperator />
@@ -56,17 +57,17 @@ Kept-mounted closed menus are hidden and have no active placement observers.
 
 ## Defaults and parity limits
 
-| Option | Default |
-| --- | --- |
-| `closeOnSelect` | `true` |
-| `disabled` | `false` |
-| `side` | `bottom` |
-| `contentAlign` | `start` |
+| Option                       | Default   |
+| ---------------------------- | --------- |
+| `closeOnSelect`              | `true`    |
+| `disabled`                   | `false`   |
+| `side`                       | `bottom`  |
+| `contentAlign`               | `start`   |
 | `sideOffset` / `alignOffset` | `8` / `0` |
-| `matchTriggerWidth` | `false` |
-| `collisionPadding` | `8` |
-| `avoidCollisions` | `true` |
-| `keepMounted` | `false` |
+| `matchTriggerWidth`          | `false`   |
+| `collisionPadding`           | `8`       |
+| `avoidCollisions`            | `true`    |
+| `keepMounted`                | `false`   |
 
 Collision handling flips placement; it does not add shifting. Available-height
 sizing is enabled with `matchTriggerWidth`, as in Vue. The normal menu maximum

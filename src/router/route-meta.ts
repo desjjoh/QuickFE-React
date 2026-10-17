@@ -1,3 +1,3 @@
 export type RouteMeta = {
-  pageTitle?: string;
-};
+  pageTitle?: string
+}

@@ -1,54 +1,51 @@
-import type { CSSProperties, HTMLAttributes, ReactNode } from "react";
+import type { CSSProperties, HTMLAttributes, ReactNode } from 'react'
 
-import styles from "./FlexBox.module.scss";
+import styles from './FlexBox.module.scss'
 
-type FlexDirection = CSSProperties["flexDirection"];
-type FlexWrap = CSSProperties["flexWrap"];
-type JustifyContent = CSSProperties["justifyContent"];
-type AlignItems = CSSProperties["alignItems"];
-type AlignSelf = CSSProperties["alignSelf"];
-type JustifySelf = CSSProperties["justifySelf"];
-type OverflowX = CSSProperties["overflowX"];
-type OverflowY = CSSProperties["overflowY"];
+type FlexDirection = CSSProperties['flexDirection']
+type FlexWrap = CSSProperties['flexWrap']
+type JustifyContent = CSSProperties['justifyContent']
+type AlignItems = CSSProperties['alignItems']
+type AlignSelf = CSSProperties['alignSelf']
+type JustifySelf = CSSProperties['justifySelf']
+type OverflowX = CSSProperties['overflowX']
+type OverflowY = CSSProperties['overflowY']
 
 type FlexBoxStyle = CSSProperties & {
-  "--flex-gap-x": number;
-  "--flex-gap-y": number;
-  "--padding": number;
-};
+  '--flex-gap-x': number
+  '--flex-gap-y': number
+  '--padding': number
+}
 
-export type FlexBoxProps = Omit<
-  HTMLAttributes<HTMLDivElement>,
-  "children" | "style"
-> & {
-  children?: ReactNode;
-  className?: string;
-  style?: CSSProperties;
+export type FlexBoxProps = Omit<HTMLAttributes<HTMLDivElement>, 'children' | 'style'> & {
+  children?: ReactNode
+  className?: string
+  style?: CSSProperties
 
-  inline?: boolean;
+  inline?: boolean
 
-  grow?: boolean;
-  shrink?: boolean;
+  grow?: boolean
+  shrink?: boolean
 
-  fullWidth?: boolean;
-  fullHeight?: boolean;
+  fullWidth?: boolean
+  fullHeight?: boolean
 
-  gap?: number;
-  gapX?: number;
-  gapY?: number;
-  padding?: number;
+  gap?: number
+  gapX?: number
+  gapY?: number
+  padding?: number
 
-  direction?: FlexDirection;
-  wrap?: FlexWrap;
+  direction?: FlexDirection
+  wrap?: FlexWrap
 
-  justifyContent?: JustifyContent;
-  alignItems?: AlignItems;
-  alignSelf?: AlignSelf;
-  justifySelf?: JustifySelf;
+  justifyContent?: JustifyContent
+  alignItems?: AlignItems
+  alignSelf?: AlignSelf
+  justifySelf?: JustifySelf
 
-  overflowX?: OverflowX;
-  overflowY?: OverflowY;
-};
+  overflowX?: OverflowX
+  overflowY?: OverflowY
+}
 
 export function FlexBox({
   children,
@@ -68,30 +65,30 @@ export function FlexBox({
   gapY,
   padding = 0,
 
-  direction = "row",
-  wrap = "nowrap",
+  direction = 'row',
+  wrap = 'nowrap',
 
-  justifyContent = "flex-start",
-  alignItems = "stretch",
-  alignSelf = "auto",
-  justifySelf = "auto",
+  justifyContent = 'flex-start',
+  alignItems = 'stretch',
+  alignSelf = 'auto',
+  justifySelf = 'auto',
 
   overflowX,
   overflowY,
 
   ...rest
 }: FlexBoxProps) {
-  const resolvedGapX = gapX ?? gap;
-  const resolvedGapY = gapY ?? gap;
+  const resolvedGapX = gapX ?? gap
+  const resolvedGapY = gapY ?? gap
 
   const flexStyle: FlexBoxStyle = {
-    "--flex-gap-x": resolvedGapX,
-    "--flex-gap-y": resolvedGapY,
-    "--padding": padding,
+    '--flex-gap-x': resolvedGapX,
+    '--flex-gap-y': resolvedGapY,
+    '--padding': padding,
 
-    display: inline ? "inline-flex" : "flex",
-    width: fullWidth ? "100%" : "auto",
-    height: fullHeight ? "100%" : undefined,
+    display: inline ? 'inline-flex' : 'flex',
+    width: fullWidth ? '100%' : 'auto',
+    height: fullHeight ? '100%' : undefined,
     overflowX,
     overflowY,
     flexDirection: direction,
@@ -104,14 +101,15 @@ export function FlexBox({
     flexWrap: wrap,
 
     ...style,
-  };
+  }
 
   return (
     <div
-      className={[styles.flexBox, className].filter(Boolean).join(" ")}
+      className={[styles.flexBox, className].filter(Boolean).join(' ')}
       style={flexStyle}
-      {...rest}>
+      {...rest}
+    >
       {children}
     </div>
-  );
+  )
 }
