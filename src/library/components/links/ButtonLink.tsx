@@ -8,7 +8,7 @@ import { Link, type To } from "react-router-dom";
 
 import type { Radius, Size, Tone, Variant } from "../button/buttons";
 
-import styles from "./ButtonLink.module.scss";
+import styles from "../button/Button.module.scss";
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 
@@ -76,7 +76,7 @@ export function ButtonLink({
     rel ?? (linkTarget === "_blank" ? "noopener noreferrer" : undefined);
 
   const buttonClasses = [
-    styles["button-link"],
+    styles.button,
     styles[`tone-${tone}`],
     styles[`variant-${variant}`],
     styles[`size-${size}`],

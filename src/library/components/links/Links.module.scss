@@ -1,5 +1,5 @@
 @use "@/library/styles/components/links" as link;
 
-.app-link {
+.link {
   @include link.link;
 }

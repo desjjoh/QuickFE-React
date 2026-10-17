@@ -3,7 +3,7 @@ import { Link, type To } from "react-router-dom";
 
 import type { Tone, Underline } from "./links";
 
-import styles from "./AppLink.module.scss";
+import styles from "./Links.module.scss";
 
 type AppLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> & {
   href: To;
@@ -31,7 +31,7 @@ export function AppLink({
     <Link
       {...rest}
       to={href}
-      className={[styles["app-link"], styles[`tone-${tone}`], styles[`underline-${underline}`], className]
+      className={[styles.link, styles[`tone-${tone}`], styles[`underline-${underline}`], className]
         .filter(Boolean)
         .join(" ")}
       target={resolvedTarget}

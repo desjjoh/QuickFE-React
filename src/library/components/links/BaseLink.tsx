@@ -2,7 +2,7 @@ import type { AnchorHTMLAttributes, ReactNode } from "react";
 
 import type { Tone, Underline } from "./links";
 
-import styles from "./BaseLink.module.scss";
+import styles from "./Links.module.scss";
 
 type BaseLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -30,7 +30,7 @@ export function BaseLink({
     <a
       {...rest}
       href={href}
-      className={[styles["base-link"], styles[`tone-${tone}`], styles[`underline-${underline}`], className]
+      className={[styles.link, styles[`tone-${tone}`], styles[`underline-${underline}`], className]
         .filter(Boolean)
         .join(" ")}
       target={resolvedTarget}

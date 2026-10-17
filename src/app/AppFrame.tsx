@@ -2,6 +2,9 @@ import { useEffect, useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { NavBar } from "@/library/components/navbar/NavBar";
 import { useViewport } from "@/shared/hooks/useViewport";
+import { BrandNavigation } from "./widgets/navigation/BrandNavigation";
+import { MainNavigation } from "./widgets/navigation/MainNavigation";
+import { mainNavigation } from "./config/navigation";
 
 import styles from "./styles/AppFrame.module.scss";
 
@@ -26,9 +29,15 @@ function AppFrame(): React.JSX.Element {
     <div className={styles.appFrame}>
       <main ref={contentRef} className={styles.frameMain} data-app-shell-scroll>
         <header className={styles.frameHeader}>
-          <NavBar centered={!isDesktop} />
+          <NavBar
+            centered={!isDesktop}
+            start={isDesktop ? <><BrandNavigation /><MainNavigation routes={mainNavigation} /></> : undefined}
+            center={!isDesktop ? <BrandNavigation hideText /> : undefined}
+          />
         </header>
-        <Outlet />
+        <div className={styles.frameContent}>
+          <Outlet />
+        </div>
       </main>
     </div>
   );

@@ -1,9 +1,0 @@
-@use "@/library/styles/components" as button;
-
-.button-link {
-  @include button.interactive-control;
-  @include button.states;
-  text-decoration: none;
-}
-
-@include button.styles;
