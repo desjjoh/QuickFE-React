@@ -1,10 +1,12 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { NavBar } from "@/library/components/navbar/NavBar";
 import { useViewport } from "@/shared/hooks/useViewport";
 import { BrandNavigation } from "./widgets/navigation/BrandNavigation";
 import { MainNavigation } from "./widgets/navigation/MainNavigation";
 import { mainNavigation } from "./config/navigation";
+import { FlexBox } from "@/library/components/flex/FlexBox";
+import { ThemeToggle } from "./widgets/buttons/ThemeToggle";
 
 import styles from "./styles/AppFrame.module.scss";
 
@@ -25,14 +27,29 @@ function AppFrame(): React.JSX.Element {
     });
   }, [pathname]);
 
+  const navigationStart = isDesktop ? (
+    <React.Fragment>
+      <BrandNavigation />
+      <MainNavigation routes={mainNavigation} />
+    </React.Fragment>
+  ) : null;
+
+  const navigationCenter = isDesktop ? null : <BrandNavigation hideText />;
+  const navigationEnd = isDesktop ? (
+    <FlexBox gap={2}>
+      <ThemeToggle />
+    </FlexBox>
+  ) : null;
+
   return (
     <div className={styles.appFrame}>
       <main ref={contentRef} className={styles.frameMain} data-app-shell-scroll>
         <header className={styles.frameHeader}>
           <NavBar
             centered={!isDesktop}
-            start={isDesktop ? <><BrandNavigation /><MainNavigation routes={mainNavigation} /></> : undefined}
-            center={!isDesktop ? <BrandNavigation hideText /> : undefined}
+            start={navigationStart}
+            center={navigationCenter}
+            end={navigationEnd}
           />
         </header>
         <div className={styles.frameContent}>
