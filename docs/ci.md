@@ -1,5 +1,7 @@
 # Continuous integration
 
+[Back to README](../README.md)
+
 `.github/workflows/ci.yml` mirrors Vue's workflow triggers and job separation,
 covering formatting, linting, and TypeScript checking.
 

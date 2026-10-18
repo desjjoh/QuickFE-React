@@ -1,75 +1,63 @@
-# React + TypeScript + Vite
+# QuickFE-React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React and TypeScript frontend starter following **QuickFE-Vue3**'s application shell, design tokens, and shared component conventions.
 
-Currently, two official plugins are available:
+The current application provides a template page and a translated component playground. It establishes the UI foundation for future QuickAPI-NestJS integration; account flows, API adapters, and feature screens are not implemented yet.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## What's included
 
-## React Compiler
+- React, TypeScript, Vite, React Compiler, React Router, Redux Toolkit, SCSS, and react-i18next.
+- Responsive app frame, configuration-driven navigation, and translated browser titles.
+- Shared buttons, links, typography, cards, layout primitives, dropdowns, and tabs.
+- Persistent light/dark theme and English locale stores with cross-tab synchronization.
+- A component playground, local fonts, and startup font/flag loading.
+- Separate formatting, lint, and type-check CI jobs for `main`, `staging`, and `dev`.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Getting started
 
-Note: This will impact Vite dev & build performances.
+Use Node.js 22.12 or newer within the Node 22 line and npm to match CI.
 
-## Expanding the ESLint configuration
+1. Install dependencies: `npm ci`.
+2. Start the development server: `npm run dev`.
+3. Open `http://localhost:8080` for the template or `/playground` for component examples.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+No backend, environment file, or certificates are required for the current starter. Port **8080** is fixed; startup fails if it is occupied. See [Development](docs/development.md) for scripts and asset loading.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Documentation
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+| Guide                                           | Contents                                                             |
+| ----------------------------------------------- | -------------------------------------------------------------------- |
+| [Development](docs/development.md)              | Local setup, commands, styling, translations, and fonts              |
+| [Architecture](docs/architecture.md)            | Folder boundaries, bootstrap, routing, state, and UI composition     |
+| [API contracts](docs/api-contracts.md)          | Current integration boundary and preparation for QuickAPI            |
+| [Testing](docs/testing.md)                      | Local checks, browser verification, CI, and current test limitations |
+| [Deployment and operations](docs/deployment.md) | Static builds, routing fallback, assets, and hosting requirements    |
+| [Technical backlog](docs/backlog.md)            | Current gaps and deferred work                                       |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Component references: [dropdown menus](docs/dropdowns.md) and [playground/tabs](docs/playground.md). Workflow details and the importable branch policy are in [Continuous integration](docs/ci.md).
+
+Commands live in [package.json](package.json), development/build configuration in [vite.config.ts](vite.config.ts), and CI in [.github/workflows/ci.yml](.github/workflows/ci.yml).
+
+## Route overview
+
+| Page                 | Route         |
+| -------------------- | ------------- |
+| Template             | `/`           |
+| Component playground | `/playground` |
+
+Navigation uses React Router's native path destinations. Several More navigation entries are placeholders pointing to `/`; they do not represent implemented pages.
+
+## Quality checks
+
+```sh
+npm run format:check
+npm run lint
+npm run type-check
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+CI runs formatting, lint, and type checks. Builds and browser checks are separate; no automated test suite is currently available. See [Testing](docs/testing.md) for verification boundaries.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## License
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+[MIT](LICENSE).

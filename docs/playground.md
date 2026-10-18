@@ -1,5 +1,7 @@
 # Playground
 
+[Back to README](../README.md)
+
 Visit `/playground`, or choose **Playground** directly below **Template** in More
 navigation. The route loads the playground separately and uses the translated
 `Playground — QuickFE` browser title.
@@ -43,17 +45,12 @@ unique IDs and label relationships, are mounted only while displayed, and fade
 out before the next panel mounts. Initial panels appear without animation;
 only tab changes animate. Reduced motion disables the animation.
 
-## Interaction fixture
+## Verification
 
-With the development server running, open `/test/manual/tabs.html`.
-This fixture is outside application routing and navigation. It covers:
+Use `/playground` for nested groups, translated rich text, button states,
+dropdown keyboard/focus behavior, and narrow-screen tables. Controlled selection,
+route tabs, and disabled-tab cases need dedicated consumers to exercise them.
 
-- Fragment defaults and skipping a disabled first tab.
-- Arrow wrapping, disabled skipping, Home/End, and roving tab stops.
-- Controlled changes from tab clicks and external state updates.
-- Route-tab selection and navigation.
-- Panel state resetting after switching away and returning.
-
-The playground itself covers nested groups, translated rich text, button states,
-dropdown keyboard/focus behavior, and narrow-screen tables. These are browser
-interaction fixtures, not an automated CI test suite.
+The earlier `/test/manual/tabs.html` fixture is no longer checked in. There is
+currently no automated tab test suite. Follow [Testing](testing.md) for the
+available checks and manual regression checklist.
