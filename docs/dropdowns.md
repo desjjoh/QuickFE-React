@@ -1,5 +1,7 @@
 # Dropdown menus
 
+[Back to README](../README.md)
+
 The React dropdown system follows QuickFE-Vue3's component boundaries and defaults.
 Open state is local to each dropdown. No Redux slice or application-level host is required.
 
@@ -18,7 +20,7 @@ Open state is local to each dropdown. No Redux slice or application-level host i
   )}
 >
   <MenuViewport>
-    <MenuRouter to="/profile">Profile</MenuRouter>
+    <MenuRouter to="/playground">Playground</MenuRouter>
     <MenuSeperator />
     <MenuButton onClick={handleAction}>Action</MenuButton>
   </MenuViewport>
@@ -75,12 +77,12 @@ height is 400px. Nested submenus are outside this first implementation.
 Vue declares an unused `modal` option; React does not expose an inactive option.
 Color tokens are unchanged.
 
-## Verification fixture
+## Verification
 
-Start `npm run dev`, then open `/test/manual/dropdowns.html` on the dev server.
-The fixture runs in StrictMode, is type-checked by the application build, and is
-not an application route or production build entry. It includes empty, disabled,
-kept-mounted, width-matched, routed, and viewport-edge examples.
+Start `npm run dev`, then open `/playground` and use the dropdown examples.
+The earlier `/test/manual/dropdowns.html` fixture is no longer checked in.
+Empty, disabled, kept-mounted, width-matched, and viewport-edge cases require
+dedicated consumers to exercise them; the current playground is not full coverage.
 
 Browser regression checklist:
 
@@ -97,4 +99,5 @@ Browser regression checklist:
   Outside wheel/touch interactions dismiss; scrolling the menu itself remains usable.
 - Check both themes, empty menus, repeated open/close, and reduced-motion settings.
 
-These browser checks are a manual regression fixture, not an automated browser suite.
+This is a manual regression checklist, not an automated browser suite.
+See [Testing](testing.md) for current verification limits.
