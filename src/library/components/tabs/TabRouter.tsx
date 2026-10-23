@@ -14,6 +14,7 @@ export function TabRouter({
   const { tone } = useTabsContext()
   const path = useResolvedPath(to, { relative })
   const active = !!useMatch({ path: path.pathname, end, caseSensitive })
+
   return (
     <NavLink
       {...props}

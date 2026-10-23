@@ -11,6 +11,7 @@ import React from 'react'
 
 export function LinkPlayground() {
   const { t } = useTranslation()
+
   return (
     <TabLayout
       tabs={

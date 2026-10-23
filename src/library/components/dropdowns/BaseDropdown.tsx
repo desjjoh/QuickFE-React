@@ -39,6 +39,7 @@ export function BaseDropdown({
   children,
 }: DropdownProps): React.JSX.Element {
   const [state, setState] = useState<'closed' | 'open' | 'closing'>('closed')
+
   // Disabling an open dropdown also clears its state, so re-enabling cannot reopen it.
   if (disabled && state !== 'closed') setState('closed')
   const isOpen = state === 'open' && !disabled
@@ -77,6 +78,7 @@ export function BaseDropdown({
 
   const focusTrigger = useCallback(() => {
     const element = triggerWrap.current?.firstElementChild
+
     if (element instanceof HTMLElement) element.focus()
   }, [])
   const focusMenu = useCallback(() => menuEl.current?.focus(), [])
@@ -116,8 +118,10 @@ export function BaseDropdown({
   const focusItem = useCallback(
     (index: number) => {
       const items = getItems()
+
       if (!items.length) return
       const item = items[(index + items.length) % items.length]
+
       if (document.activeElement === item) return
       item.focus()
       item.scrollIntoView({ block: 'nearest' })
@@ -131,6 +135,7 @@ export function BaseDropdown({
     pointerFrame.current = requestAnimationFrame(() => {
       pointerFrame.current = null
       const nextItem = pendingItem.current
+
       pendingItem.current = null
       if (nextItem?.isConnected) nextItem.focus()
     })
@@ -147,6 +152,7 @@ export function BaseDropdown({
   useLayoutEffect(() => {
     if (!isOpen || !isPositioned || !pendingFocus.current) return
     const target = pendingFocus.current
+
     pendingFocus.current = null
     focusItem(target === 'first' ? 0 : getItems().length - 1)
   }, [isOpen, isPositioned, focusItem, getItems])
@@ -156,6 +162,7 @@ export function BaseDropdown({
     const timer = window.setTimeout(
       () => {
         const element = menuEl.current
+
         if (!element) return
         const focusTrap = createFocusTrap(element, {
           escapeDeactivates: false,
@@ -170,11 +177,13 @@ export function BaseDropdown({
               ? false
               : (element.querySelector<HTMLElement>('[data-autofocus]') ?? element),
         })
+
         trap.current = focusTrap
         focusTrap.activate()
       },
       window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 100,
     )
+
     return () => {
       clearTimeout(timer)
       trap.current?.deactivate()
@@ -188,6 +197,7 @@ export function BaseDropdown({
       () => setState('closed'),
       window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 100,
     )
+
     return () => clearTimeout(timer)
   }, [state])
   useEffect(() => cancelPointerFocus, [isOpen, cancelPointerFocus])
@@ -208,6 +218,7 @@ export function BaseDropdown({
           pendingFocus.current = event.key === 'ArrowDown' ? 'first' : 'last'
           open()
         }
+
         break
       case 'Escape':
         event.preventDefault()
@@ -215,21 +226,30 @@ export function BaseDropdown({
         break
     }
   }
+
   const onMenuKeydown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'Tab') {
       close({ restoreFocus: true })
+
       return
     }
+
     if (event.repeat) {
       event.preventDefault()
+
       return
     }
+
     const items = getItems()
+
     if (!items.length) {
       if (event.key === 'Escape') close()
+
       return
     }
+
     const index = items.findIndex((item) => item === document.activeElement)
+
     switch (event.key) {
       case 'Escape':
         event.preventDefault()
@@ -253,12 +273,15 @@ export function BaseDropdown({
         break
     }
   }
+
   const onMenuClick = (event: MouseEvent<HTMLDivElement>) => {
     if (!closeOnSelect || !(event.target instanceof Element)) return
     const item = event.target.closest('[role="menuitem"]')
+
     if (item && !item.hasAttribute('aria-disabled') && !item.hasAttribute('disabled'))
       close({ restoreFocus: true })
   }
+
   const context = useMemo(
     () => ({ close, focusTrigger, focusMenu, requestItemFocus }),
     [close, focusTrigger, focusMenu, requestItemFocus],

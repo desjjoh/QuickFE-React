@@ -9,6 +9,7 @@ export function useDynamicPageTitle(): void {
 
   useEffect(() => {
     let titleKey: string | undefined
+
     // Vue merges parent-to-child metadata; a child's explicit title takes precedence.
     for (const { handle } of matches) {
       if (typeof handle === 'object' && handle !== null && 'pageTitle' in handle) {
@@ -17,6 +18,7 @@ export function useDynamicPageTitle(): void {
     }
 
     const siteTitle = t('app.brand.name')
+
     document.title = titleKey ? `${t(titleKey)} — ${siteTitle}` : siteTitle
   }, [matches, pathname, search, hash, t, i18n.language])
 }

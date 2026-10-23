@@ -17,6 +17,7 @@ export function TabHeader({
         if (event.defaultPrevented || !(event.target instanceof HTMLElement)) return
         const target = event.target
         const header = event.currentTarget
+
         if (target.getAttribute('role') !== 'tab' || target.closest('[role="tablist"]') !== header)
           return
         const tabs = Array.from(
@@ -24,9 +25,11 @@ export function TabHeader({
             '[role="tab"]:not([disabled]):not([aria-disabled="true"])',
           ),
         ).filter((tab) => tab.closest('[role="tablist"]') === header)
+
         if (!tabs.length) return
         const current = tabs.indexOf(target)
         let index: number
+
         switch (event.key) {
           case 'ArrowRight':
             index = (current + 1) % tabs.length
@@ -43,6 +46,7 @@ export function TabHeader({
           default:
             return
         }
+
         event.preventDefault()
         tabs[index]?.focus()
         tabs[index]?.click()

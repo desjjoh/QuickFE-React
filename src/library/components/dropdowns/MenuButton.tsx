@@ -15,6 +15,7 @@ export function MenuButton({
   ...props
 }: Props): React.JSX.Element {
   const { requestItemFocus } = useDropdownContext()
+
   return (
     <button
       {...props}

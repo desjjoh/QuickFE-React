@@ -8,12 +8,14 @@ export async function preloadLocaleFlags(): Promise<void> {
 
   const loading = Object.values(LOCALES).map(({ flag }) => {
     let image = flagImages.get(flag)
+
     if (!image) {
       image = new Image()
       image.decoding = 'async'
       image.src = flag
       flagImages.set(flag, image)
     }
+
     return image.decode()
   })
 

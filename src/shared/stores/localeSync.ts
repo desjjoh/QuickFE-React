@@ -8,6 +8,7 @@ const CHANNEL_NAME = 'quickfe-locale'
 function applyLocale(locale: AppLocales): void {
   void i18n.changeLanguage(locale)
   document.documentElement.lang = locale
+
   try {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(locale))
   } catch {
@@ -20,11 +21,13 @@ export function initializeLocale(store: AppStore): () => void {
   if (typeof window === 'undefined' || typeof document === 'undefined') return () => {}
 
   const locale = isAppLocale(i18n.language) ? i18n.language : resolveInitialLocale()
+
   store.dispatch(setLocale(locale))
   applyLocale(locale)
 
   const source = globalThis.crypto?.randomUUID?.() ?? Math.random().toString(36)
   let channel: BroadcastChannel | null = null
+
   try {
     if ('BroadcastChannel' in window) channel = new window.BroadcastChannel(CHANNEL_NAME)
   } catch {
@@ -35,6 +38,7 @@ export function initializeLocale(store: AppStore): () => void {
   let receiving = false
   const unsubscribe = store.subscribe(() => {
     const nextLocale = store.getState().locale.locale
+
     if (nextLocale === currentLocale) return
     currentLocale = nextLocale
     applyLocale(nextLocale)
@@ -43,6 +47,7 @@ export function initializeLocale(store: AppStore): () => void {
 
   const onMessage = (event: MessageEvent<unknown>): void => {
     const message = event.data
+
     if (
       typeof message !== 'object' ||
       message === null ||
@@ -59,12 +64,14 @@ export function initializeLocale(store: AppStore): () => void {
       return
 
     receiving = true
+
     try {
       store.dispatch(setLocale(message.locale))
     } finally {
       receiving = false
     }
   }
+
   channel?.addEventListener('message', onMessage)
 
   return () => {

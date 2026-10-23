@@ -14,6 +14,7 @@ import { FlexBox } from '@/library/components/flex/FlexBox'
 
 export function DropdownPlayground() {
   const { t } = useTranslation()
+
   return (
     <TabLayout
       tabs={<TabButton id="examples">{t('playground.header.tabs.examples')}</TabButton>}

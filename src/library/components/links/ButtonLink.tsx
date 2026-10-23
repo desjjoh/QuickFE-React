@@ -52,10 +52,13 @@ export function ButtonLink({
   const handleClick: React.MouseEventHandler<HTMLAnchorElement> = (event) => {
     if (disabled) {
       event.preventDefault()
+
       return
     }
+
     onClick?.(event)
   }
+
   const stringDestination = typeof to === 'string' ? to : href
   const usesRouterLink = isRouteObject(to) || (!external && !isAbsoluteUrl(stringDestination))
 

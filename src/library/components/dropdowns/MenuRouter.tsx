@@ -22,6 +22,7 @@ export function MenuRouter({
   ...props
 }: Props): React.JSX.Element {
   const { requestItemFocus } = useDropdownContext()
+
   return (
     <Link
       {...props}
@@ -41,8 +42,10 @@ export function MenuRouter({
         if (disabled) {
           event.preventDefault()
           event.stopPropagation()
+
           return
         }
+
         onClick?.(event)
       }}
       onPointerMove={(event) => {

@@ -15,6 +15,13 @@ These check formatting, ESLint rules, TypeScript projects, and production compil
 
 ESLint uses the recommended JavaScript/TypeScript rules, React Hooks rules, and React Refresh rules. It does not currently enable TypeScript's type-aware ESLint configurations.
 
+Source files also follow Vue's logical-spacing rules: separate class methods,
+leave a blank line after variable declaration groups and block-like statements,
+and before `return`, `throw`, or `try`. Consecutive variable declarations may stay
+together. These rules cover `.ts`, `.mts`, and `.tsx` files under `src/`.
+Run `npm run lint:fix` to apply ESLint's available fixes. Generated build,
+coverage, report, and browser-test output directories are ignored.
+
 ## Automated tests: current gap
 
 There is no checked-in `test/` suite, automated browser runner, or coverage gate in the current repository. The existing `test:theme` script points to `test/unit/stores/theme.test.mjs`, which is absent. It is not a passing or usable suite.

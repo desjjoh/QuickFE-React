@@ -14,8 +14,10 @@ void preloadFonts()
 void preloadLocaleFlags()
 
 const stopThemeSync = initializeTheme(store)
+
 import.meta.hot?.dispose(stopThemeSync)
 const stopLocaleSync = initializeLocale(store)
+
 import.meta.hot?.dispose(stopLocaleSync)
 
 createRoot(document.getElementById('root')!).render(

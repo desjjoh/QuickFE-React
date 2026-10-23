@@ -5,8 +5,10 @@ import { PlaygroundTable } from '../layouts/PlaygroundTable'
 import React from 'react'
 
 const tones: Tone[] = ['primary', 'neutral']
+
 export function TabsPlayground() {
   const { t } = useTranslation()
+
   return (
     <TabLayout
       tabs={<TabButton id="colors">{t('playground.header.tabs.themeColors')}</TabButton>}

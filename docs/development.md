@@ -25,6 +25,7 @@ The starter does not currently read application environment variables or require
 | `npm run format`       | Apply Prettier formatting                                      |
 | `npm run format:check` | Check formatting without writing files                         |
 | `npm run lint`         | Run ESLint                                                     |
+| `npm run lint:fix`     | Apply available ESLint fixes, including logical spacing        |
 | `npm run type-check`   | Check the application and Vite TypeScript projects             |
 
 The format commands tolerate missing optional directories such as `test/`. They use the same Prettier settings as Vue: single quotes, no JavaScript/TypeScript semicolons, and a 100-column print width. Git normalizes text files to LF.

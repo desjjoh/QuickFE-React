@@ -13,15 +13,18 @@ export function TabPanel({
 }) {
   const [{ tab: displayedTab, animate }, setPanel] = useState({ tab: activeTab, animate: false })
   const changing = activeTab !== displayedTab
+
   useEffect(() => {
     if (!changing) return
     const timeout = window.setTimeout(
       () => setPanel({ tab: activeTab, animate: true }),
       window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 150,
     )
+
     return () => window.clearTimeout(timeout)
   }, [activeTab, changing])
   if (panels[displayedTab] === undefined) return null
+
   return (
     <div
       key={displayedTab}

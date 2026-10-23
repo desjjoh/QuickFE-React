@@ -49,9 +49,11 @@ export function useFloatingOverlay({
 
   const { reference, floating: element } = floating.elements
   const { update } = floating
+
   useEffect(() => {
     // Kept-mounted menus must not retain resize/scroll observers while closed.
     if (!open || !reference || !element) return
+
     return autoUpdate(reference, element, update)
   }, [open, reference, element, update])
 
@@ -62,5 +64,6 @@ export function useFloatingOverlay({
   }, [matchTriggerWidth, element])
 
   const [resolvedSide, resolvedAlign = 'center'] = floating.placement.split('-')
+
   return { ...floating, resolvedSide, resolvedAlign }
 }

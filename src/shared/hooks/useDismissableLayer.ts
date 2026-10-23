@@ -23,12 +23,15 @@ export function useDismissableLayer({
     const onPointerDown = (event: PointerEvent) => {
       if (!inside(event.target)) onDismiss()
     }
+
     const onFocusIn = (event: FocusEvent) => {
       if (!inside(event.target)) onDismiss()
     }
+
     const onKeydown = (event: KeyboardEvent) => {
       if (!inside(event.target)) onOutsideKeydown?.(event)
     }
+
     const onScrollInteraction = (event: WheelEvent | TouchEvent) => {
       if (!(event.target instanceof Node) || !contentRef.current?.contains(event.target))
         onDismiss()
@@ -39,6 +42,7 @@ export function useDismissableLayer({
     if (onOutsideKeydown) document.addEventListener('keydown', onKeydown, true)
     document.addEventListener('wheel', onScrollInteraction, { capture: true, passive: true })
     document.addEventListener('touchmove', onScrollInteraction, { capture: true, passive: true })
+
     return () => {
       document.removeEventListener('pointerdown', onPointerDown, true)
       document.removeEventListener('focusin', onFocusIn)

@@ -25,6 +25,7 @@ type ExampleProps = {
 
 function Example({ kind, disabled, loading, ...props }: ExampleProps) {
   const { t } = useTranslation()
+
   if (kind === 'icon')
     return (
       <IconButton
@@ -41,6 +42,7 @@ function Example({ kind, disabled, loading, ...props }: ExampleProps) {
         {t('playground.action.next')}
       </ButtonLink>
     )
+
   return (
     <Button {...props} disabled={disabled} loading={loading} icon={ArrowRight}>
       {t('playground.action.next')}
@@ -53,6 +55,7 @@ export function ButtonExamples({ kind }: { kind: Kind }) {
   const label = (group: string, key: string) => (
     <InlineText size="sm">{t(`playground.table.${group}.${key}`)}</InlineText>
   )
+
   return (
     <TabLayout
       tabs={

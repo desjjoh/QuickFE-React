@@ -19,8 +19,10 @@ function firstTabId(nodes: ReactNode): TabId | undefined {
     if (!isValidElement<{ id?: string; disabled?: boolean; children?: ReactNode }>(node)) continue
     if (node.type === Fragment) {
       const id = firstTabId(node.props.children)
+
       if (id !== undefined) return id
     }
+
     if (typeof node.props.id === 'string' && !node.props.disabled) return node.props.id
   }
 }
@@ -36,6 +38,7 @@ export function TabLayout({
   const id = useId()
   const [internalValue, setInternalValue] = useState<TabId>()
   const activeTab = value ?? internalValue ?? firstTabId(tabs) ?? ''
+
   return (
     <TabsContext.Provider
       value={{

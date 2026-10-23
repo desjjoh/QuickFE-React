@@ -7,6 +7,7 @@ type Props = Omit<ComponentPropsWithoutRef<'button'>, 'id'> & { id: string }
 export function TabButton({ id, children, className, onClick, disabled, ...props }: Props) {
   const context = useTabsContext()
   const active = context.activeTab === id
+
   return (
     <button
       {...props}

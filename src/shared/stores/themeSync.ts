@@ -10,10 +10,12 @@ function isThemeMode(value: unknown): value is ThemeMode {
 
 function getInitialMode(): ThemeMode {
   const documentMode = document.documentElement.dataset.theme
+
   if (isThemeMode(documentMode)) return documentMode
 
   try {
     const saved: unknown = JSON.parse(window.localStorage.getItem(STORAGE_KEY) ?? 'null')
+
     if (isThemeMode(saved)) return saved
   } catch {
     // A missing/blocked storage area or invalid saved value must not prevent startup.
@@ -24,6 +26,7 @@ function getInitialMode(): ThemeMode {
 
 function applyMode(mode: ThemeMode): void {
   document.documentElement.dataset.theme = mode
+
   try {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(mode))
   } catch {
@@ -36,11 +39,13 @@ export function initializeTheme(store: AppStore): () => void {
   if (typeof window === 'undefined' || typeof document === 'undefined') return () => {}
 
   const mode = getInitialMode()
+
   store.dispatch(setMode(mode))
   applyMode(mode)
 
   const source = globalThis.crypto?.randomUUID?.() ?? Math.random().toString(36)
   let channel: BroadcastChannel | null = null
+
   try {
     if ('BroadcastChannel' in window) channel = new window.BroadcastChannel(CHANNEL_NAME)
   } catch {
@@ -51,6 +56,7 @@ export function initializeTheme(store: AppStore): () => void {
   let receiving = false
   const unsubscribe = store.subscribe(() => {
     const nextMode = store.getState().theme.mode
+
     if (nextMode === currentMode) return
     currentMode = nextMode
     applyMode(nextMode)
@@ -59,6 +65,7 @@ export function initializeTheme(store: AppStore): () => void {
 
   const onMessage = (event: MessageEvent<unknown>): void => {
     const message = event.data
+
     if (
       typeof message !== 'object' ||
       message === null ||
@@ -71,12 +78,14 @@ export function initializeTheme(store: AppStore): () => void {
       return
 
     receiving = true
+
     try {
       store.dispatch(setMode(message.mode))
     } finally {
       receiving = false
     }
   }
+
   channel?.addEventListener('message', onMessage)
 
   return () => {
